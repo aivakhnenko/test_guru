@@ -6,6 +6,7 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+Rails 5.2.1
 
 * System dependencies
 
@@ -22,3 +23,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* Сущности проекта TestGugu
+Создатель теста
+Тестируемый
+Тест
+Вопрос
+Сдача теста
