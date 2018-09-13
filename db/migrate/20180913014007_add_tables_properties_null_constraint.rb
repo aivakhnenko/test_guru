@@ -10,6 +10,6 @@ class AddTablesPropertiesNullConstraint < ActiveRecord::Migration[5.2]
     change_column_null(:answers, :question_id, false)
     change_column_null(:users, :name, false)
     change_column_null(:users, :type, false)
-    change_column_null(:categorys, :title, false)
+    change_column_null(:categories, :title, false)
   end
 end
