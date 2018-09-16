@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+users = User.create!([
+  { user_type: 0, name: 'John' }, 
+  { user_type: 0, name: 'Mike' },
+  { user_type: 1, name: 'Admin' }, 
+  { user_type: 1, name: 'Teacher' }, 
+])
+
 categories = Category.create!([
   { title: 'Frontend' }, 
   { title: 'Backend' }, 
@@ -13,11 +20,11 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { category_id: categories[0].id, level: 0, title: 'HTML' }, 
-  { category_id: categories[0].id, level: 1, title: 'CSS' }, 
-  { category_id: categories[0].id, level: 2, title: 'JS' }, 
-  { category_id: categories[1].id, level: 3, title: 'Ruby' }, 
-  { category_id: categories[2].id, level: 3, title: 'Objective_C' }
+  { category_id: categories[0].id, level: 0, user_id: users[2].id, title: 'HTML' }, 
+  { category_id: categories[0].id, level: 1, user_id: users[2].id, title: 'CSS' }, 
+  { category_id: categories[0].id, level: 2, user_id: users[2].id, title: 'JS' }, 
+  { category_id: categories[1].id, level: 3, user_id: users[3].id, title: 'Ruby' }, 
+  { category_id: categories[2].id, level: 3, user_id: users[3].id, title: 'Objective_C' }
 ])
 
 questions = Question.create!([
@@ -41,12 +48,7 @@ answers = Answer.create!([
   { question_id: questions[4].id, correct: false, text: '@catch' }
 ])
 
-users = User.create!([
-  { user_type: 0, name: 'John' }, 
-  { user_type: 0, name: 'Mike' }
-])
-
-test_attempts = TestAttempt.create!([
+tests_users = TestsUser.create!([
   { user_id: users[0].id, test_id: tests[0].id, status: 1},
   { user_id: users[0].id, test_id: tests[1].id, status: 1},
   { user_id: users[0].id, test_id: tests[2].id, status: 1},
