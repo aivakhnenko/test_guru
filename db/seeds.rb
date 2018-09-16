@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = Category.create([
+categories = Category.create!([
   { title: 'Frontend' }, 
   { title: 'Backend' }, 
   { title: 'Mobile Development' }
 ])
 
-tests = Test.create([
+tests = Test.create!([
   { category_id: categories[0].id, level: 0, title: 'HTML' }, 
   { category_id: categories[0].id, level: 1, title: 'CSS' }, 
   { category_id: categories[0].id, level: 2, title: 'JS' }, 
@@ -20,7 +20,7 @@ tests = Test.create([
   { category_id: categories[2].id, level: 3, title: 'Objective_C' }
 ])
 
-questions = Question.create([
+questions = Question.create!([
   { test_id: tests[0].id, body: 'Name tag for hyperlink.' }, 
   { test_id: tests[1].id, body: 'How can you make text underlined?' }, 
   { test_id: tests[2].id, body: 'What keyword should you use to declare a variable?' }, 
@@ -28,7 +28,7 @@ questions = Question.create([
   { test_id: tests[4].id, body: 'What keyword should you use before code block, if you want to catch an exception in this code block?' }
 ])
 
-answers = Answer.create([
+answers = Answer.create!([
   { question_id: questions[0].id, correct: true, text: 'a' }, 
   { question_id: questions[0].id, correct: false, text: 'p' }, 
   { question_id: questions[1].id, correct: true, text: 'text-decoration: underline;' }, 
@@ -41,12 +41,12 @@ answers = Answer.create([
   { question_id: questions[4].id, correct: false, text: '@catch' }
 ])
 
-users = User.create([
+users = User.create!([
   { user_type: 0, name: 'John' }, 
   { user_type: 0, name: 'Mike' }
 ])
 
-test_attempts = TestAttempt.create([
+test_attempts = TestAttempt.create!([
   { user_id: users[0].id, test_id: tests[0].id, status: 1},
   { user_id: users[0].id, test_id: tests[1].id, status: 1},
   { user_id: users[0].id, test_id: tests[2].id, status: 1},
