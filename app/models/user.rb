@@ -1,9 +1,9 @@
 class User < ApplicationRecord
-  has_many :tests_users
-  has_many :tests, through: :tests_users
-  has_many :tests_created, class_name: "Test"
+  has_many :test_attempts, dependent: :destroy
+  has_many :tests, through: :test_attempts, dependent: :destroy
+  has_many :tests_created, class_name: "Test", dependent: :destroy
 
   def tests_by_level(level)
-    Test.joins(:users).where(tests: { level: level }, users: { id: id })
+    tests.where(level: level)
   end
 end

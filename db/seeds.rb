@@ -20,38 +20,38 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { category_id: categories[0].id, level: 0, user_id: users[2].id, title: 'HTML' }, 
-  { category_id: categories[0].id, level: 1, user_id: users[2].id, title: 'CSS' }, 
-  { category_id: categories[0].id, level: 2, user_id: users[2].id, title: 'JS' }, 
-  { category_id: categories[1].id, level: 3, user_id: users[3].id, title: 'Ruby' }, 
-  { category_id: categories[2].id, level: 3, user_id: users[3].id, title: 'Objective_C' }
+  { category: categories[0], level: 0, author: users[2], title: 'HTML' }, 
+  { category: categories[0], level: 1, author: users[2], title: 'CSS' }, 
+  { category: categories[0], level: 2, author: users[2], title: 'JS' }, 
+  { category: categories[1], level: 3, author: users[3], title: 'Ruby' }, 
+  { category: categories[2], level: 3, author: users[3], title: 'Objective_C' }
 ])
 
 questions = Question.create!([
-  { test_id: tests[0].id, body: 'Name tag for hyperlink.' }, 
-  { test_id: tests[1].id, body: 'How can you make text underlined?' }, 
-  { test_id: tests[2].id, body: 'What keyword should you use to declare a variable?' }, 
-  { test_id: tests[3].id, body: 'What is the symbol for hash rocker?' }, 
-  { test_id: tests[4].id, body: 'What keyword should you use before code block, if you want to catch an exception in this code block?' }
+  { test: tests[0], body: 'Name tag for hyperlink.' }, 
+  { test: tests[1], body: 'How can you make text underlined?' }, 
+  { test: tests[2], body: 'What keyword should you use to declare a variable?' }, 
+  { test: tests[3], body: 'What is the symbol for hash rocker?' }, 
+  { test: tests[4], body: 'What keyword should you use before code block, if you want to catch an exception in this code block?' }
 ])
 
 answers = Answer.create!([
-  { question_id: questions[0].id, correct: true, text: 'a' }, 
-  { question_id: questions[0].id, correct: false, text: 'p' }, 
-  { question_id: questions[1].id, correct: true, text: 'text-decoration: underline;' }, 
-  { question_id: questions[1].id, correct: false, text: 'text-decoration: line-through;' }, 
-  { question_id: questions[2].id, correct: true, text: 'var' }, 
-  { question_id: questions[2].id, correct: false, text: 'int' }, 
-  { question_id: questions[3].id, correct: true, text: '=>' }, 
-  { question_id: questions[3].id, correct: false, text: '<=' }, 
-  { question_id: questions[4].id, correct: true, text: '@try' }, 
-  { question_id: questions[4].id, correct: false, text: '@catch' }
+  { question: questions[0], correct: true, text: 'a' }, 
+  { question: questions[0], correct: false, text: 'p' }, 
+  { question: questions[1], correct: true, text: 'text-decoration: underline;' }, 
+  { question: questions[1], correct: false, text: 'text-decoration: line-through;' }, 
+  { question: questions[2], correct: true, text: 'var' }, 
+  { question: questions[2], correct: false, text: 'int' }, 
+  { question: questions[3], correct: true, text: '=>' }, 
+  { question: questions[3], correct: false, text: '<=' }, 
+  { question: questions[4], correct: true, text: '@try' }, 
+  { question: questions[4], correct: false, text: '@catch' }
 ])
 
-tests_users = TestsUser.create!([
-  { user_id: users[0].id, test_id: tests[0].id, status: 1},
-  { user_id: users[0].id, test_id: tests[1].id, status: 1},
-  { user_id: users[0].id, test_id: tests[2].id, status: 1},
-  { user_id: users[0].id, test_id: tests[3].id, status: 0},
-  { user_id: users[1].id, test_id: tests[4].id, status: 0},
+test_attempts = TestAttempt.create!([
+  { user: users[0], test: tests[0], status: 1},
+  { user: users[0], test: tests[1], status: 1},
+  { user: users[0], test: tests[2], status: 1},
+  { user: users[0], test: tests[3], status: 0},
+  { user: users[1], test: tests[4], status: 0},
 ])
