@@ -27,7 +27,7 @@ tests = Test.create!([
   { category: categories[2], level: 4, author: users[3], title: 'Objective_C' }
 ])
 
-questions = Question.create([
+questions = Question.create!([
   { test: tests[0], body: 'Name tag for hyperlink.' }, 
   { test: tests[1], body: 'How can you make text underlined?' }, 
   { test: tests[2], body: 'What keyword should you use to declare a variable?' }, 
