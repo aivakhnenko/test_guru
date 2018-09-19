@@ -7,10 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([
-  { user_type: 0, name: 'John' }, 
-  { user_type: 0, name: 'Mike' },
-  { user_type: 1, name: 'Admin' }, 
-  { user_type: 1, name: 'Teacher' }, 
+  { user_type: 0, name: 'John', email: 'john@example.com' }, 
+  { user_type: 0, name: 'Mike', email: 'mike@example.com' }, 
+  { user_type: 1, name: 'Admin', email: 'admin@example.com' }, 
+  { user_type: 1, name: 'Teacher', email: 'teacher@example.com' }
 ])
 
 categories = Category.create!([
@@ -20,14 +20,14 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { category: categories[0], level: 0, author: users[2], title: 'HTML' }, 
-  { category: categories[0], level: 1, author: users[2], title: 'CSS' }, 
-  { category: categories[0], level: 2, author: users[2], title: 'JS' }, 
-  { category: categories[1], level: 3, author: users[3], title: 'Ruby' }, 
-  { category: categories[2], level: 3, author: users[3], title: 'Objective_C' }
+  { category: categories[0], level: 1, author: users[2], title: 'HTML' }, 
+  { category: categories[0], level: 2, author: users[2], title: 'CSS' }, 
+  { category: categories[0], level: 3, author: users[2], title: 'JS' }, 
+  { category: categories[1], level: 4, author: users[3], title: 'Ruby' }, 
+  { category: categories[2], level: 4, author: users[3], title: 'Objective_C' }
 ])
 
-questions = Question.create!([
+questions = Question.create([
   { test: tests[0], body: 'Name tag for hyperlink.' }, 
   { test: tests[1], body: 'How can you make text underlined?' }, 
   { test: tests[2], body: 'What keyword should you use to declare a variable?' }, 
