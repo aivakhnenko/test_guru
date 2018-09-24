@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'tests#index'
 
   resources :tests, only: %i[index show] do
-    resources :questions, shallow: true, only: %i[index show new create destroy]
+    resources :questions, shallow: true, except: %i[edit update]
   end
 end
 #            Prefix Verb   URI Pattern                             Controller#Action
