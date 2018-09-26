@@ -1,38 +1,59 @@
 class TestsController < ApplicationController
+  before_action :find_test, only: %i[show edit update destroy]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
+
   def index
-    # render plain: Test.all.inspect
-    render inline: \
-      "<h1>All tests</h1>\n"\
-      "<p><table><tbody>\n<tr><th>Title</th><th>Level</th><th>Category</th></tr>\n"\
-      "<% Test.all.each do |test| %>"\
-      "<tr><td><a href='<%= test_path(test) %>'><%= test.title %></a></td>"\
-      "<td><%= test.level %></td>"\
-      "<td><%= test.category.title %></td></tr>\n"\
-      "<% end %>"\
-      "</tbody></table></p>"
+    @tests = Test.all
   end
 
   def show
-    redirect_to test_questions_path(params[:id])
+    @questions = @test.questions
   end
 
-  # def new
-  #   render plain: params.inspect
-  # end
+  def new
+    @test = Test.new
+  end
 
-  # def create
-  #   render plain: params.inspect
-  # end
+  def create
+    @test = Test.new(test_params)
 
-  # def edit
-  #   render plain: params.inspect
-  # end
+    if @test.save
+      redirect_to @test
+    else
+      render :new
+    end
+  end
 
-  # def update
-  #   render plain: params.inspect
-  # end
+  def edit; end
 
-  # def destroy
-  #   render plain: params.inspect
-  # end
+  def update
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test.destroy!
+    redirect_to root_path
+  end
+
+  private
+
+  def find_test
+    @test = Test.find(params[:id])
+  end
+
+  def test_params
+    params.require(:test).permit(:title, :level, :category_id)
+  end
+
+  def rescue_with_record_not_found
+    render inline: \
+      "<h1>Test was not found</h1>\n"\
+      "<p><a href='<%= tests_path %>'>Back to all tests list</a></p>\n"\
+      "<p>Question was not found</p>"
+  end
 end
