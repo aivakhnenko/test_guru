@@ -4,14 +4,11 @@ class QuestionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
-  def index
-    @questions = @test.questions
-  end
-
   def show; end
 
   def new
     @question = @test.questions.new
+    render :edit
   end
 
   def create
@@ -20,7 +17,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @test
     else
-      render :new
+      render :edit
     end
   end
 

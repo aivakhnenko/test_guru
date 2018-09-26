@@ -1,7 +1,6 @@
 module QuestionsHelper
-  HEADER = { 'new' => 'Create New', 'edit' => 'Edit' }.freeze
-
-  def question_header(question, action)
-    "#{HEADER[action]} #{question.test.title} Question"
+  def question_header(question)
+    header_starter = question.new_record? ? 'Create New' : 'Edit'
+    "#{header_starter} #{question.test.title} Question"
   end
 end

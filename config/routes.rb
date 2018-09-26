@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'tests#index'
 
   resources :tests do
-    resources :questions
+    resources :questions, except: %i[index]
   end
 end
 #             Prefix Verb   URI Pattern                                  Controller#Action
