@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'tests#index'
 
   resources :tests do
-    resources :questions, except: %i[index]
+    resources :questions, shallow: true, except: %i[index]
   end
 end
 #             Prefix Verb   URI Pattern                                  Controller#Action
@@ -17,11 +17,11 @@ end
 #                    PATCH  /tests/:id(.:format)                         tests#update
 #                    PUT    /tests/:id(.:format)                         tests#update
 #                    DELETE /tests/:id(.:format)                         tests#destroy
-#     test_questions GET    /tests/:test_id/questions(.:format)          questions#index
-#      test_question GET    /tests/:test_id/questions/:id(.:format)      questions#show
+##    test_questions GET    /tests/:test_id/questions(.:format)          questions#index
+#           question GET    /tests/questions/:id(.:format)               questions#show
 #  new_test_question GET    /tests/:test_id/questions/new(.:format)      questions#new
 #                    POST   /tests/:test_id/questions(.:format)          questions#create
-# edit_test_question GET    /tests/:test_id/questions/:id/edit(.:format) questions#edit
-#                    PATCH  /tests/:test_id/questions/:id(.:format)      questions#update
-#                    PUT    /tests/:test_id/questions/:id(.:format)      questions#update
-#                    DELETE /tests/:test_id/questions/:id(.:format)      questions#destroy
+#      edit_question GET    /tests/questions/:id/edit(.:format)          questions#edit
+#                    PATCH  /tests/questions/:id(.:format)               questions#update
+#                    PUT    /tests/questions/:id(.:format)               questions#update
+#                    DELETE /tests/questions/:id(.:format)               questions#destroy

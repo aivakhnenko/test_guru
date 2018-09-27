@@ -2,13 +2,14 @@ class Answer < ApplicationRecord
   belongs_to :question
 
   validates :text, presence: true
-  validates :answers_count, inclusion: { in: 1..4 }
+  validate :validate_max_answers_count
+
 
   scope :correct, -> { where(correct: true) }
 
   private
-
-  def answers_count
-    question.answers.count + (self.new_record? ? 1 : 0)
+  
+  def validate_max_answers_count
+    errors.add(:question_id) if question.answers.count > 4
   end
 end
