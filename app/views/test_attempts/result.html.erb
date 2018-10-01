@@ -1,0 +1,14 @@
+<h1>
+  The <%= @test_attempt.test.title %> Test <%= @test_attempt.completed_successfully? ? 'Successfully Completed' : 'Failed' %>.
+</h1>
+
+<p>
+  Correct answers percentage: 
+  <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
+  	<%= (@test_attempt.correct_questions_proportion*100).to_i %>%
+  </span>
+</p>
+
+<p>
+  <%= link_to 'Back to all tests', tests_path %>
+</p>

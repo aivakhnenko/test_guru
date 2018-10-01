@@ -32,7 +32,9 @@ questions = Question.create!([
   { test: tests[1], body: 'How can you make text underlined?' }, 
   { test: tests[2], body: 'What keyword should you use to declare a variable?' }, 
   { test: tests[3], body: 'What is the symbol for hash rocker?' }, 
-  { test: tests[4], body: 'What keyword should you use before code block, if you want to catch an exception in this code block?' }
+  { test: tests[4], body: 'What keyword should you use before code block, if you want to catch an exception in this code block?' }, 
+  { test: tests[3], body: 'Who created the Ruby language?' }, 
+  { test: tests[3], body: 'What is the default value of the instance variable?' }  
 ])
 
 answers = Answer.create!([
@@ -45,13 +47,19 @@ answers = Answer.create!([
   { question: questions[3], correct: true, text: '=>' }, 
   { question: questions[3], correct: false, text: '<=' }, 
   { question: questions[4], correct: true, text: '@try' }, 
-  { question: questions[4], correct: false, text: '@catch' }
+  { question: questions[4], correct: false, text: '@catch' }, 
+  { question: questions[5], correct: true, text: 'Matz' }, 
+  { question: questions[5], correct: false, text: 'John Doe' }, 
+  { question: questions[5], correct: false, text: 'Linus Torvalds' }, 
+  { question: questions[5], correct: false, text: 'Donald Duck' }, 
+  { question: questions[6], correct: true, text: 'nil' }, 
+  { question: questions[6], correct: false, text: 'false' }
 ])
 
 test_attempts = TestAttempt.create!([
-  { user: users[0], test: tests[0], status: 1},
-  { user: users[0], test: tests[1], status: 1},
-  { user: users[0], test: tests[2], status: 1},
-  { user: users[0], test: tests[3], status: 0},
-  { user: users[1], test: tests[4], status: 0},
+  { user: users[0], test: tests[0], correct_questions: 0},
+  { user: users[0], test: tests[1], correct_questions: 0},
+  { user: users[0], test: tests[2], correct_questions: 0},
+  { user: users[0], test: tests[3], correct_questions: 0},
+  { user: users[1], test: tests[4], correct_questions: 0},
 ])
