@@ -3,14 +3,12 @@ class TestAttempt < ApplicationRecord
   belongs_to :user
   belongs_to :current_question, class_name: 'Question', optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-  before_update :before_update_next_question
+  validates :test, :user, presence: true
+
+  before_validation :before_validation_set_current_question
 
   def accept!(answer_ids)
-    if correct_answer?(answer_ids)
-      self.correct_questions += 1
-    end
-
+    self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
 
@@ -19,11 +17,11 @@ class TestAttempt < ApplicationRecord
   end
 
   def completed_successfully?
-    correct_questions_proportion >= 0.85
+    correct_questions_percentage >= 85
   end
 
-  def correct_questions_proportion
-    correct_questions.to_f / test.questions.count
+  def correct_questions_percentage
+    (correct_questions.to_f / test.questions.count * 100).to_i
   end
 
   def current_question_index
@@ -32,16 +30,17 @@ class TestAttempt < ApplicationRecord
 
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
-  end
-
-  def before_update_next_question
-    self.current_question = next_question
+  def before_validation_set_current_question
+    self.current_question =
+      if new_record?
+        test.questions.first
+      else
+        next_question
+      end
   end
 
   def correct_answer?(answer_ids)
-    correct_answers.ids.sort == answer_ids.map(&:to_i).sort
+    correct_answers.ids.sort == answer_ids.map(&:to_i).sort if answer_ids
   end
 
   def correct_answers

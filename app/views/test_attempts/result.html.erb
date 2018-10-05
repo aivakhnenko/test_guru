@@ -5,7 +5,7 @@
 <p>
   Correct answers percentage: 
   <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
-  	<%= (@test_attempt.correct_questions_proportion*100).to_i %>%
+  	<%= @test_attempt.correct_questions_percentage %>%
   </span>
 </p>
 

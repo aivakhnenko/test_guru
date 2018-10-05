@@ -57,9 +57,9 @@ answers = Answer.create!([
 ])
 
 test_attempts = TestAttempt.create!([
-  { user: users[0], test: tests[0], correct_questions: 0},
-  { user: users[0], test: tests[1], correct_questions: 0},
-  { user: users[0], test: tests[2], correct_questions: 0},
-  { user: users[0], test: tests[3], correct_questions: 0},
-  { user: users[1], test: tests[4], correct_questions: 0},
+  { user: users[0], test: tests[0] },
+  { user: users[0], test: tests[1] },
+  { user: users[0], test: tests[2] },
+  { user: users[0], test: tests[3] },
+  { user: users[1], test: tests[4] },
 ])

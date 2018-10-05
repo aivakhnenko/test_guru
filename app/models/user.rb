@@ -10,7 +10,7 @@ class User < ApplicationRecord
   end
 
   def test_attempt(test)
-    test_attempts.order(id: :desc).find_by(test_id: test.id)
+    test_attempts.order(id: :desc).find_by(test: test)
   end
 
 end
