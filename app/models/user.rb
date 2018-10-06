@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :tests_created, class_name: "Test", foreign_key: "author_id"
   has_secure_password
 
+  validates :name, presence: true
   validates :email, format: { with: /.+@.+\..+/ }
 
   def tests_by_level(level)
