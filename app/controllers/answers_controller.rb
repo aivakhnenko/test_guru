@@ -1,7 +1,6 @@
 class AnswersController < ApplicationController
   before_action :find_answer, except: %i[new create]
   before_action :find_question, only: %i[new create]
-#  before_action :find_test
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_record_not_found
 
@@ -43,13 +42,8 @@ class AnswersController < ApplicationController
   end
 
   def find_question
-#    @question = @answer ? @answer.question : Question.find(params[:question_id])
     @question = Question.find(params[:question_id])
   end
-
-#  def find_test
-#    @test = @question.test
-#  end
 
   def answer_params
     params.require(:answer).permit(:text, :correct)
