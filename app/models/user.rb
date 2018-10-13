@@ -1,12 +1,18 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
   has_many :test_attempts, dependent: :destroy
   has_many :tests, through: :test_attempts
   has_many :tests_created, class_name: "Test", foreign_key: "author_id"
-  has_secure_password
 
-  validates :name, presence: true
+  devise  :database_authenticatable, 
+          :registerable, 
+          :recoverable, 
+          :rememberable, 
+          :trackable, 
+          :validatable, 
+          :confirmable
+  # :lockable, :timeoutable, :omniauthable
+
+  validates :first_name, :last_name, presence: true
   validates :email, format: { with: /.+@.+\..+/ }
 
   def tests_by_level(level)

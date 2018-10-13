@@ -1,8 +1,0 @@
-<h1><%= question_header(@question) %></h1>
-
-<%= render 'form', model: [@question] %>
-
-<p>
-  <%= link_to "Back to test #{@test.title}", test_path(@test) %>
-  <%= link_to 'Back to all tests', tests_path %>
-</p>
