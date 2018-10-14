@@ -9,7 +9,7 @@ module ApplicationHelper
   
   def flash_messages
     tags = flash.keys.map { |flash_type| flash_tag(flash_type) }
-    tags.join.html_safe
+    safe_join(tags)
   end
 
   def flash_message(flash_type)

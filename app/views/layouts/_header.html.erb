@@ -1,7 +1,7 @@
 <p class='nav'>
   <span class='title'>
     <%= link_to 'Test Guru &mdash; Online Tests'.html_safe, root_path %>
-    <% if user_signed_in? && current_user.admin? %>
+    <% if current_user&.admin? %>
       | <%= link_to 'Admin Panel', admin_path %>
     <% end %>
   </span>
