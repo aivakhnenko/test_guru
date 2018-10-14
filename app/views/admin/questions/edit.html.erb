@@ -1,0 +1,6 @@
+<%= render 'form', model: [:admin, @question] %>
+
+<p>
+  <%= link_to "Back to test #{@question.test.title}", admin_test_path(@question.test) %>
+  <%= link_to 'Back to all tests', admin_tests_path %>
+</p>
