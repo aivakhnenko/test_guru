@@ -22,4 +22,12 @@ class User < ApplicationRecord
   def test_attempt(test)
     test_attempts.order(id: :desc).find_by(test: test)
   end
+
+  def admin?
+    self.is_a?(Admin)
+  end
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

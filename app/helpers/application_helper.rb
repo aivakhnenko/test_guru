@@ -8,10 +8,17 @@ module ApplicationHelper
   end
   
   def flash_messages
-    flash.keys.map(&method(:flash_message)).join(' ').html_safe
+    tags = flash.keys.map { |flash_type| flash_tag(flash_type) }
+    tags.join.html_safe
   end
 
   def flash_message(flash_type)
-    content_tag :p, flash[flash_type], class: "flash #{flash_type}" if flash[flash_type]
+    flash_tag(flash_type) if flash[flash_type]
+  end
+
+  private
+
+  def flash_tag(flash_type)
+    content_tag :p, flash[flash_type], class: "flash #{flash_type}"
   end
 end

@@ -1,13 +1,13 @@
 <p class='nav'>
   <span class='title'>
     <%= link_to 'Test Guru &mdash; Online Tests'.html_safe, root_path %>
-    <% if user_signed_in? && current_user.is_a?(Admin) %>
+    <% if user_signed_in? && current_user.admin? %>
       | <%= link_to 'Admin Panel', admin_path %>
     <% end %>
   </span>
   <span class='user'>
     <% if user_signed_in? %>
-      Welcome, <b><%= current_user.first_name %> <%= current_user.last_name %></b> Guru |
+      Welcome, <b><%= current_user.full_name %></b> Guru |
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
     <% else %>
       <%= link_to 'Login', new_user_session_path %> |
