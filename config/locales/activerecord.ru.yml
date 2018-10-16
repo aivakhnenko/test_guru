@@ -1,0 +1,24 @@
+ru:
+  activerecord:
+    models:
+      category: "Категория"
+      test: "Тест"
+      question:
+        one: "Вопрос"
+        many: "Вопросов"
+      answer:
+        one: "Ответ"
+        other: "Ответы"
+    attributes:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+      question:
+        body: "Вопрос"
+      answer:
+        text: "Текст"
+        correct: "Правильный"
+    errors:
+      messages:
+        greater_than: "должен иметь значение больше %{count}"

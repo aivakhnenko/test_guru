@@ -1,0 +1,23 @@
+  activerecord:
+    models:
+      category: "Category"
+      test: "Test"
+      question:
+        one: "Question"
+        many: "Questions"
+      answer:
+        one: "Answer"
+        other: "Answers"
+    attributes:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+      question:
+        body: "Question"
+      answer:
+        text: "Text"
+        correct: "Correct"
+    errors:
+      messages:
+        greater_than: "must be greater than %{count}"

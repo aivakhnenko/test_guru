@@ -1,5 +1,5 @@
-<h1>Passing the <%= @test_attempt.test.title %> Test</h1>
-<h2>Question <%= @test_attempt.current_question_index %> of <%= @test_attempt.test.questions.count %>.</h2>
+<h1><%= t('.header', title: @test_attempt.test.title) %></h1>
+<h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
 <b><%= @test_attempt.current_question.body %></b>
 
 <%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put do |form| %>
@@ -10,5 +10,5 @@
 	</p>
   <% end %>
   
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit t('.next') %></p>
 <% end %>

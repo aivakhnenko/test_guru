@@ -1,6 +1,5 @@
 module QuestionsHelper
   def question_header(question)
-    header_starter = question.new_record? ? 'Create New' : 'Edit'
-    "#{header_starter} #{question.test.title} Question"
+    I18n.t(question.new_record? ? 'helper.questions.header_new' : 'helper.questions.header_edit', title: question.test.title)
   end
 end

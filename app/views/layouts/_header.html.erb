@@ -1,17 +1,17 @@
 <p class='nav'>
   <span class='title'>
-    <%= link_to 'Test Guru &mdash; Online Tests'.html_safe, root_path %>
+    <%= link_to "#{t('general.project_name_short')} &mdash; #{t('general.project_description_short')}".html_safe, root_path %>
     <% if current_user&.admin? %>
-      | <%= link_to 'Admin Panel', admin_path %>
+      | <%= link_to t('general.admin_panel'), admin_path %>
     <% end %>
   </span>
   <span class='user'>
     <% if user_signed_in? %>
-      Welcome, <b><%= current_user.full_name %></b> Guru |
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= raw t('.welcome_message', name: "<b>#{current_user.full_name}</b>") %> |
+      <%= link_to t('general.logout'), destroy_user_session_path, method: :delete, data: { confirm: t('general.are_you_sure?') } %>
     <% else %>
-      <%= link_to 'Login', new_user_session_path %> |
-      <%= link_to 'Sign up', new_user_registration_path %>
+      <%= link_to t('general.login'), new_user_session_path %> |
+      <%= link_to t('general.sign_up'), new_user_registration_path %>
     <% end %>
   </span>
   <hr>
