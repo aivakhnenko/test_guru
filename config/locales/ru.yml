@@ -1,33 +1,108 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 ru:
-  hello: "Привет, мир!"
+  general:
+    "yes": "да"
+    "no": "нет"
+    actions: "Действия"
+    show: "Просмотреть"
+    edit: "Изменить"
+    delete: "Удалить"
+    back: "Назад"
+    back_to_test: "Назад к тесту %{title}"
+    back_to_all_tests: "Назад ко всем тестам"
+    are_you_sure?: "Вы уверены?"
+    sign_up: "Регистрация"
+    login: "Войти"
+    logout: "Выйти"
+    admin_panel: "Панель Администора"
+    project_author: "Александр Ивахненко"
+    project_name_short: "TestGuru"
+    project_name_long: "Проект TestGuru"
+    project_description_short: "Тесты Онлайн"
+    project_description_long: "Учебный проект в онлайн-школе Thinknetica"
+  admin:
+    base:
+      admin_required:
+        alert: "Вы не авторизованы для просмотра данной страницы."
+    answers:
+      create:
+        notice_success: "Ответ успешно создан."
+      update:
+        notice_success: "Ответ успешно обновлен."
+      destroy:
+        notice_success: "Ответ успешно удален."
+      rescue_with_answer_not_found:
+        alert: "Ответ не найден."
+      new:
+        header: "Новый Ответ"
+    questions:
+      create:
+        notice_success: "Вопрос успешно создан."
+      update:
+        notice_success: "Вопрос успешно обновлен."
+      destroy:
+        notice_success: "Вопрос успешно удален."
+      rescue_with_question_not_found:
+        alert: "Вопрос не найден."
+      show:
+        new_answer: "Новый ответ"
+    tests:
+      create:
+        notice_success: "Тест успешно создан."
+      update:
+        notice_success: Тест успешно обновлен."
+      destroy:
+        notice_success: "Тест успешно удален."
+      rescue_with_test_not_found:
+        alert: "Тест не найден."
+      edit:
+        header: "Изменить Тест %{title}"
+      index:
+        header: "Тесты"
+        new_test: "Новый тест"
+      new:
+        header: "Создать Новый Тест"
+      show:
+        header: "Тест %{title}"
+        edit_test: "Изменить тест"
+        new_question: "Новый вопрос"
+  sessions:
+    create:
+      welcome_message: "Добро пожаловать, %{name}!"
+  tests:
+    test:
+      start: "Пройти"
+    index:
+      header: "Тесты"
+    rescue_with_test_not_found:
+      alert: "Тест не найден."
+  test_attempts:
+    result:
+      header_passed: "Тест %{title} успешно завершён!"
+      header_failed: "Тест %{title} не сдан."
+      correct_answers_percentage: "Процент корректных ответов"
+    show:
+      header: "Сдача Теста %{title}"
+      question_header: "Вопрос %{current} из %{total}"
+      next: "Следующий вопрос"
+  helper:
+    questions:
+      header_new: "Создать Новый %{title} Вопрос"
+      header_edit: "Изменить %{title} Вопрос"
+  shared:
+    errors:
+      header:
+        one: "Обнаружена %{count} ошибка"
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        other: "Обнаружено %{count} ошибки"
+  test_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+    faild_test:
+      subject: "Тест на TestGuru не сдан."
+  layouts:
+    header:
+      welcome_message: "Добро пожаловать, %{name} Гуру"
+    header_admin:
+      welcome_message: "Добро пожаловать, %{email} Гуру"
+      user_interface: "Интерфейс Пользователя"

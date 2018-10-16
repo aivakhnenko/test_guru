@@ -1,14 +1,12 @@
-<h1>
-  The <%= @test_attempt.test.title %> Test <%= @test_attempt.completed_successfully? ? 'Successfully Completed' : 'Failed' %>.
-</h1>
+<h1><%= t(@test_attempt.completed_successfully? ? '.header_passed' : '.header_failed', title: @test_attempt.test.title) %></h1>
 
 <p>
-  Correct answers percentage: 
+  <%= t('.correct_answers_percentage') %>: 
   <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
   	<%= @test_attempt.correct_questions_percentage %>%
   </span>
 </p>
 
 <p>
-  <%= link_to 'Back to all tests', tests_path %>
+  <%= link_to t('general.back_to_all_tests'), tests_path %>
 </p>

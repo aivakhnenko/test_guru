@@ -1,17 +1,17 @@
-<h1>Question <%= @question.id %></h1>
+<h1><%= Question.model_name.human %> <%= @question.id %></h1>
 
-<p><strong>Body:</strong> <%= @question.body %></p>
+<p><strong><%= Question.model_name.human %>:</strong> <%= @question.body %></p>
 
-<h2>Answers</h2>
+<h2><%= Answer.model_name.human(count: 0.1) %></h2>
 
-<%= link_to 'New answer', new_admin_question_answer_path(@question) %>
+<%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
 
 <ol>
   <%= render @question.answers %>
 </ol>
 
 <p>
-  <%= link_to 'Edit', edit_admin_question_path(@question) %> | 
-  <%= link_to "Back to test #{@question.test.title}", admin_test_path(@question.test) %>
-  <%= link_to 'Back to all tests', admin_tests_path %>
+  <%= link_to t('general.edit'), edit_admin_question_path(@question) %> | 
+  <%= link_to t('general.back_to_test', title: @question.test.title), admin_test_path(@question.test) %>
+  <%= link_to t('general.back_to_all_tests'), admin_tests_path %>
 </p>

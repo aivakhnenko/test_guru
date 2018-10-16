@@ -1,6 +1,6 @@
 module QuestionsHelper
   def question_header(question)
-    header_starter = question.new_record? ? 'Create New' : 'Edit'
-    "#{header_starter} #{question.test.title} Question"
+    locale_path = question.new_record? ? 'helper.questions.header_new' : 'helper.questions.header_edit'
+    I18n.t(locale_path, title: question.test.title)
   end
 end

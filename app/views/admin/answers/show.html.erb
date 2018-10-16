@@ -1,17 +1,17 @@
-<h1>Question</h1>
+<h1><%= Question.model_name.human %></h1>
 
 <p>
   <%= @answer.question.body %>
 </p>
 
 <p>
-  <b>Answer:</b>
+  <b><%= Answer.model_name.human %>:</b>
   <%= @answer.text %>
 </p>
 
 <p>
-  <b>Correct:</b>
-  <%= @answer.correct %>
+  <b><%= Answer.human_attribute_name(:correct) %>:</b>
+  <%= t(@answer.correct ? 'general.yes' : 'general.no') %>
 </p>
 
-<%= link_to 'Back', admin_question_path(@answer.question) %>
+<%= link_to t('general.back'), admin_question_path(@answer.question) %>

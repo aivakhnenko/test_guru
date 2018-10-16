@@ -1,33 +1,108 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  general:
+    "true": "true"
+    "false": "false"
+    actions: "Actions"
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    back: "Back"
+    back_to_test: "Back to test %{title}"
+    back_to_all_tests: "Back to all tests"
+    are_you_sure?: "Are you sure?"
+    sign_up: "Sign up"
+    login: "Login"
+    logout: "Logout"
+    admin_panel: "Admin Panel"
+    project_author: "Alexander Ivakhnenko"
+    project_name_short: "TestGuru"
+    project_name_long: "Project TestGuru"
+    project_description_short: "Online Tests"
+    project_description_long: "Study project at online school Thinknetica"
+  admin:
+    base:
+      admin_required:
+        alert: "You are not authorized to view this page."
+    answers:
+      create:
+        notice_success: "Answer was successfully created."
+      update:
+        notice_success: "Answer was successfully updated."
+      destroy:
+        notice_success: "Answer was successfully deleted."
+      rescue_with_answer_not_found:
+        alert: "Answer was not found."
+      new:
+        header: "New Answer"
+    questions:
+      create:
+        notice_success: "Question was successfully created."
+      update:
+        notice_success: "Question was successfully updated."
+      destroy:
+        notice_success: "Question was successfully deleted."
+      rescue_with_question_not_found:
+        alert: "Question was not found."
+      show:
+        new_answer: "New answer"
+    tests:
+      create:
+        notice_success: "Test was successfully created."
+      update:
+        notice_success: "Test was successfully updated."
+      destroy:
+        notice_success: "Test was successfully deleted."
+      rescue_with_test_not_found:
+        alert: "Test was not found."
+      edit:
+        header: "Edit Test %{title}"
+      index:
+        header: "Tests"
+        new_test: "New test"
+      new:
+        header: "Create New Test"
+      show:
+        header: "Test %{title}"
+        edit_test: "Edit test"
+        new_question: "New question"
+  sessions:
+    create:
+      welcome_message: "Welcome, %{name}!"
+  tests:
+    test:
+      start: "Start"
+    index:
+      header: "Tests"
+    rescue_with_test_not_found:
+      alert: "Test was not found."
+  test_attempts:
+    result:
+      header_passed: "The %{title} Test Successfully Completed."
+      header_failed: "The %{title} Test Failed."
+      correct_answers_percentage: "Correct answers percentage"
+    show:
+      header: "Passing the %{title} Test"
+      question_header: "Question %{current} of %{total}"
+      next: "Next"
+  helper:
+    questions:
+      header_new: "Create New %{title} Question"
+      header_edit: "Edit %{title} Question"
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        few: "%{count} errors detected"
+        many: "%{count} errors detected"
+        other: "%{count} errors detected"
+  test_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+    faild_test:
+      subject: "Sorry. You failed the TestGuru test."
+  layouts:
+    header:
+      welcome_message: "Welcome, %{name} Guru"
+    header_admin:
+      welcome_message: "Welcome, %{email} Guru"
+      user_interface: "User Interface"
