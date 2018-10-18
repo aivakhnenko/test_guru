@@ -1,6 +1,8 @@
-<li>
-	<%= answer.text %><br>
-	<%= link_to t('general.show'), admin_answer_path(answer) %> | 
-	<%= link_to t('general.edit'), edit_admin_answer_path(answer) %> | 
-	<%= link_to t('general.delete'), admin_answer_path(answer), method: :delete, data: { confirm: t('general.are_you_sure?') } %>
+<li class="list-group-item pl-3 pt-1">
+	<div><%= answer.text %></div>
+  <div class="btn-group" role="group" >
+    <%= link_to t('general.show'), admin_answer_path(answer), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    <%= link_to t('general.edit'), edit_admin_answer_path(answer), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    <%= link_to t('general.delete'), admin_answer_path(answer), role: 'button', class: 'btn btn-outline-dark btn-sm', method: :delete, data: { confirm: t('general.are_you_sure?') } %>
+  </div>
 </li>

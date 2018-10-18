@@ -34,6 +34,8 @@ ru:
         alert: "Ответ не найден."
       new:
         header: "Новый Ответ"
+      edit:
+        header: "Изменить Ответ"
     questions:
       create:
         notice_success: "Вопрос успешно создан."
@@ -45,6 +47,7 @@ ru:
         alert: "Вопрос не найден."
       show:
         new_answer: "Новый ответ"
+        edit_question: "Изменить вопрос"
     tests:
       create:
         notice_success: "Тест успешно создан."

@@ -1,12 +1,16 @@
-<h1><%= t(@test_attempt.completed_successfully? ? '.header_passed' : '.header_failed', title: @test_attempt.test.title) %></h1>
+<div class="row">
+  <div class="col">
+    <h1><%= t(@test_attempt.completed_successfully? ? '.header_passed' : '.header_failed', title: @test_attempt.test.title) %></h1>
 
-<p>
-  <%= t('.correct_answers_percentage') %>: 
-  <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
-  	<%= @test_attempt.correct_questions_percentage %>%
-  </span>
-</p>
+    <p>
+      <%= t('.correct_answers_percentage') %>: 
+      <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
+      	<%= @test_attempt.correct_questions_percentage %>%
+      </span>
+    </p>
 
-<p>
-  <%= link_to t('general.back_to_all_tests'), tests_path %>
-</p>
+    <div class="btn-group" role="group" >
+      <%= link_to t('general.back_to_all_tests'), tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
+  </div>
+</div>

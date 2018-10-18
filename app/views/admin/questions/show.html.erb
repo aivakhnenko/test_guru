@@ -1,17 +1,21 @@
-<h1><%= Question.model_name.human %> <%= @question.id %></h1>
+<div class="row">
+  <div class="col">
+    <h1><%= Question.model_name.human %> <%= @question.test.title %></h1>
 
-<p><strong><%= Question.model_name.human %>:</strong> <%= @question.body %></p>
+    <p><strong><%= Question.model_name.human %>:</strong> <%= @question.body %></p>
 
-<h2><%= Answer.model_name.human(count: 0.1) %></h2>
+    <h2><%= Answer.model_name.human(count: 0.1) %></h2>
 
-<%= link_to t('.new_answer'), new_admin_question_answer_path(@question) %>
+    <ul class="list-group mb-3">
+      <%= render @question.answers %>
+    </ul>
 
-<ol>
-  <%= render @question.answers %>
-</ol>
+    <div class="btn-group" role="group" >
+      <%= link_to t('.new_answer'), new_admin_question_answer_path(@question), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('.edit_question'), edit_admin_question_path(@question), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('general.back_to_test', title: @question.test.title), admin_test_path(@question.test), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('general.back_to_all_tests'), admin_tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
 
-<p>
-  <%= link_to t('general.edit'), edit_admin_question_path(@question) %> | 
-  <%= link_to t('general.back_to_test', title: @question.test.title), admin_test_path(@question.test) %>
-  <%= link_to t('general.back_to_all_tests'), admin_tests_path %>
-</p>
+  </div>
+</div>
