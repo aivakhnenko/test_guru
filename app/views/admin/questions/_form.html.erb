@@ -1,12 +1,14 @@
 <h1><%= question_header(@question) %></h1>
 
 <%= form_with model: model, local: true do |form| %>
-  <%= render 'shared/errors', resource: @question %>
+  <div class="form-group">
+    <%= render 'shared/errors', resource: @question %>
 
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_field :body, id: :question_body %>
-  </p>
+    <p>
+      <%= form.label :body %>
+      <%= form.text_field :body, id: :question_body, class: "form-control" %>
+    </p>
 
-  <p><%= form.submit %></p>
+    <%= form.submit class: "btn btn-secondary btn-sm" %>
+  </div>
 <% end %>

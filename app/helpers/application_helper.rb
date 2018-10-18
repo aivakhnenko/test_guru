@@ -16,9 +16,18 @@ module ApplicationHelper
     flash_tag(flash_type) if flash[flash_type]
   end
 
+  def languages
+    I18n.available_locales - [I18n.locale]
+  end
+
   private
 
+  FLASH_TYPE_TO_ALERT_TYPE = { alert: :danger, notice: :info }.freeze
+  DEFAULT_ALERT_TYPE = :other.freeze
+
   def flash_tag(flash_type)
-    content_tag :p, flash[flash_type], class: "flash #{flash_type}"
+    alert_type = FLASH_TYPE_TO_ALERT_TYPE.fetch(flash_type.to_sym, DEFAULT_ALERT_TYPE)
+    alert_class = "alert alert-#{alert_type}"
+    content_tag :div, flash[flash_type], class: alert_class, role: 'alert'
   end
 end

@@ -1,8 +1,13 @@
-<h1>Edit Answer</h1>
+<div class="row">
+  <div class="col">
+    <h1><%= t('.header') %></h1>
 
-<p>
-  <%= @answer.question.body %>
-</p>
+    <p><strong><%= Question.model_name.human %>:</strong> <%= @answer.question.body %></p>
 
-<%= render 'form' %>
-<%= link_to t('.link_back'), admin_question_path(@answer.question) %>
+    <%= render 'form' %>
+
+    <div class="btn-group" role="group" >
+      <%= link_to t('general.back'), admin_question_path(@answer.question), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
+  </div>
+</div>

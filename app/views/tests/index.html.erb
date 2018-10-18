@@ -1,13 +1,20 @@
-<h1><%= t('.header') %></h1>
+<div class="row">
+  <div class="col">
+    <h1><%= t('.header') %></h1>
 
-<table>
-  <tr>
-    <th><%= Test.human_attribute_name(:title) %></th>
-    <th><%= Test.human_attribute_name(:level) %></th>
-    <th><%= Category.model_name.human %></th>
-    <th><%= Question.model_name.human(count: 9) %></th>
-    <th><%= t('general.actions') %></th>
-  </tr>
-  
-  <%= render @tests %>
-</table>
+    <table class="table table-sm text-center">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col"><%= Test.human_attribute_name(:title) %></th>
+          <th scope="col"><%= Test.human_attribute_name(:level) %></th>
+          <th scope="col"><%= Category.model_name.human %></th>
+          <th scope="col"><%= Question.model_name.human(count: 9) %></th>
+          <th scope="col"><%= t('general.actions') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @tests %>
+      </tbody>
+    </table>
+  </div>
+</div>

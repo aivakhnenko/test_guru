@@ -1,6 +1,18 @@
-<p>
-  <hr>
-  <%= t('general.project_author') %>, <%= current_year %><br>
-  <%= link_to t('general.project_name_short'), github_url('aivakhnenko', 'test_guru') %> &mdash; <%= t('general.project_description_short') %><br>
-  <%= link_to t('general.project_description_long'), 'http://thinknetica.com/' %>
-</p>
+<div class="container-fluid text-center bg-light mt-3 p-2">
+  <div class="row">
+    <div class="col">
+      <%= t('general.project_author') %>, <%= current_year %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to t('general.project_name_short'), github_url('aivakhnenko', 'test_guru') %> &mdash;
+      <%= t('general.project_description_short') %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= link_to t('general.project_description_long'), 'http://thinknetica.com/' %>
+    </div>
+  </div>
+</div>

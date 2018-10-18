@@ -1,19 +1,27 @@
-<p class='nav'>
-  <span class='title'>
-    <%= link_to "#{t('general.project_name_short')} &mdash; #{t('general.project_description_short')}".html_safe, root_path %>
+<div class="navbar navbar-expand navbar-light bg-light mb-3">
+  <%= link_to t('general.project_name_short').html_safe, root_path, class: 'navbar-brand' %>
+
+  <ul class="navbar-nav">
     <% if current_user&.admin? %>
-      | <%= link_to t('general.admin_panel'), admin_path %>
+      <li class="nav-item">
+        <%= link_to t('general.admin_panel'), admin_path, class: 'nav-link' %>
+      </li>
     <% end %>
-  </span>
-  <span class='user'>
+  </ul>
+
+  <span class='navbar-text ml-auto'>
     <% if user_signed_in? %>
-      <%= raw t('.welcome_message', name: "<b>#{current_user.full_name}</b>") %> |
+      <%= raw t('.welcome_message', name: "<strong>#{current_user.full_name}</strong>") %> |
       <%= link_to t('general.logout'), destroy_user_session_path, method: :delete, data: { confirm: t('general.are_you_sure?') } %>
     <% else %>
       <%= link_to t('general.login'), new_user_session_path %> |
       <%= link_to t('general.sign_up'), new_user_registration_path %>
     <% end %>
+    
+    <% languages.each do |lang| %>
+      <% locale_path = "general.#{lang}" %>
+      <% lang = nil if lang == I18n.default_locale %>
+      | <%= link_to t(locale_path), url_for(lang: lang) %>
+    <% end %>
   </span>
-  <hr>
-</p>
-<%= flash_messages %>
+</div>

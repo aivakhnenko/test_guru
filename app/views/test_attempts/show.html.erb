@@ -1,14 +1,21 @@
-<h1><%= t('.header', title: @test_attempt.test.title) %></h1>
-<h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
-<b><%= @test_attempt.current_question.body %></b>
+<div class="row">
+  <div class="col">
+    <h1><%= t('.header', title: @test_attempt.test.title) %></h1>
+    <h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
+    <strong><%= @test_attempt.current_question.body %></strong>
 
-<%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put do |form| %>
-  <%= form.collection_check_boxes :answer_ids, @test_attempt.current_question.answers, :id, :text, include_hidden: false do |b| %>
-	<p>
-	  <%= b.check_box id: "answer_ids_#{b.object.id}" %>
-	  <%= b.label %>
-	</p>
-  <% end %>
-  
-  <p><%= form.submit t('.next') %></p>
-<% end %>
+    <%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put do |form| %>
+      <div class="form-group mb-0">
+
+        <%= form.collection_check_boxes :answer_ids, @test_attempt.current_question.answers, :id, :text, include_hidden: false do |b| %>
+          <div class="form-check">
+        	  <%= b.check_box id: "answer_ids_#{b.object.id}", class: "form-check-input" %>
+        	  <%= b.label class: "form-check-label" %>
+          </div>
+        <% end %>
+
+        <%= form.submit t('.next'), class: "btn btn-secondary btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+</div>

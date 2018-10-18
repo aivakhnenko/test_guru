@@ -2,6 +2,8 @@ en:
   general:
     "true": "true"
     "false": "false"
+    ru: "Русский"
+    en: "English"
     actions: "Actions"
     show: "Show"
     edit: "Edit"
@@ -34,6 +36,8 @@ en:
         alert: "Answer was not found."
       new:
         header: "New Answer"
+      edit:
+        header: "Edit Answer"
     questions:
       create:
         notice_success: "Question was successfully created."
@@ -45,6 +49,7 @@ en:
         alert: "Question was not found."
       show:
         new_answer: "New answer"
+        edit_question: "Edit question"
     tests:
       create:
         notice_success: "Test was successfully created."
