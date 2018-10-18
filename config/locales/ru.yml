@@ -2,6 +2,8 @@ ru:
   general:
     "yes": "да"
     "no": "нет"
+    ru: "Русский"
+    en: "English"
     actions: "Действия"
     show: "Просмотреть"
     edit: "Изменить"

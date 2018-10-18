@@ -2,6 +2,8 @@ en:
   general:
     "true": "true"
     "false": "false"
+    ru: "Русский"
+    en: "English"
     actions: "Actions"
     show: "Show"
     edit: "Edit"

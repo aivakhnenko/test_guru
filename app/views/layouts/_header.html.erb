@@ -17,6 +17,11 @@
       <%= link_to t('general.login'), new_user_session_path %> |
       <%= link_to t('general.sign_up'), new_user_registration_path %>
     <% end %>
-    | <%= change_language %>
+    
+    <% languages.each do |lang| %>
+      <% locale_path = "general.#{lang}" %>
+      <% lang = nil if lang == I18n.default_locale %>
+      | <%= link_to t(locale_path), url_for(lang: lang) %>
+    <% end %>
   </span>
 </div>
