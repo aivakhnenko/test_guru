@@ -1,5 +1,5 @@
 class TestAttemptsController < ApplicationController
-  before_action :find_test_attempt, only: %i[show update result]
+  before_action :find_test_attempt, only: %i[show update result gist]
 
   def show
   end
@@ -16,6 +16,18 @@ class TestAttemptsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def gist
+    result = GistQuestionService.new(@test_attempt.current_question).call
+    url = result.html_url
+    gist = current_user.gists.new(question: @test_attempt.current_question, url: url)
+    if gist.save!
+      flash_options = { notice: t('.success', link: "<a href='#{url}'>#{t('.link_title')}</a>") }
+    else
+      flash_options = { notice: t('.failed') }
+    end
+    redirect_to @test_attempt, flash_options
   end
 
   private

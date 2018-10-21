@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :test_attempts, dependent: :destroy
   has_many :tests, through: :test_attempts
   has_many :tests_created, class_name: "Test", foreign_key: "author_id"
+  has_many :gists, dependent: :destroy
 
   devise  :database_authenticatable, 
           :registerable, 

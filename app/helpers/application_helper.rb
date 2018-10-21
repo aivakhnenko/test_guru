@@ -28,6 +28,6 @@ module ApplicationHelper
   def flash_tag(flash_type)
     alert_type = FLASH_TYPE_TO_ALERT_TYPE.fetch(flash_type.to_sym, DEFAULT_ALERT_TYPE)
     alert_class = "alert alert-#{alert_type}"
-    content_tag :div, flash[flash_type], class: alert_class, role: 'alert'
+    content_tag :div, flash[flash_type].html_safe, class: alert_class, role: 'alert'
   end
 end

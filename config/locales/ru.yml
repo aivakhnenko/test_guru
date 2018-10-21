@@ -64,12 +64,16 @@ ru:
       index:
         header: "Тесты"
         new_test: "Новый тест"
+        gists: "Gists"
       new:
         header: "Создать Новый Тест"
       show:
         header: "Тест %{title}"
         edit_test: "Изменить тест"
         new_question: "Новый вопрос"
+    gists:
+      index:
+        header: "Gists"
   sessions:
     create:
       welcome_message: "Добро пожаловать, %{name}!"
@@ -88,7 +92,12 @@ ru:
     show:
       header: "Сдача Теста %{title}"
       question_header: "Вопрос %{current} из %{total}"
+      gist: "Опубликовать в Gist"
       next: "Следующий вопрос"
+    gist:
+      success: "%{link} успешно создан."
+      link_title: "Gist"
+      failure: "Во время сохранениия gist произошла ошибка"
   helper:
     questions:
       header_new: "Создать Новый %{title} Вопрос"
@@ -111,3 +120,6 @@ ru:
     header_admin:
       welcome_message: "Добро пожаловать, %{email} Гуру"
       user_interface: "Интерфейс Пользователя"
+  gist_question_service:
+    gist_params:
+      description: "Вопрос про %{title} с TestGuru"

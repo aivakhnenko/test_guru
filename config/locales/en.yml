@@ -64,12 +64,16 @@ en:
       index:
         header: "Tests"
         new_test: "New test"
+        gists: "Gists"
       new:
         header: "Create New Test"
       show:
         header: "Test %{title}"
         edit_test: "Edit test"
         new_question: "New question"
+    gists:
+      index:
+        header: "Gists"
   sessions:
     create:
       welcome_message: "Welcome, %{name}!"
@@ -88,7 +92,12 @@ en:
     show:
       header: "Passing the %{title} Test"
       question_header: "Question %{current} of %{total}"
+      gist: "Gist Question"
       next: "Next"
+    gist:
+      success: "%{link} was successfully created!"
+      link_title: "Gist"
+      failure: "An error occurred while saving gist"
   helper:
     questions:
       header_new: "Create New %{title} Question"
@@ -111,3 +120,6 @@ en:
     header_admin:
       welcome_message: "Welcome, %{email} Guru"
       user_interface: "User Interface"
+  gist_question_service:
+    gist_params:
+      description: "A question about %{title} from TestGuru"

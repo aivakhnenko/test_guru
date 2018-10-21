@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col">
+    <h1><%= t('.header') %></h1>
+
+    <table class="table table-sm text-center">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col"><%= Question.model_name.human %></th>
+          <th scope="col"><%= Gist.human_attribute_name(:url) %></th>
+          <th scope="col"><%= User.model_name.human %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @gists %>
+      </tbody>
+    </table>
+
+    <div class="btn-group" role="group" >
+      <%= link_to t('general.back_to_all_tests'), admin_tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
+  </div>
+</div>
