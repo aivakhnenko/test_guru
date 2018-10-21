@@ -120,6 +120,7 @@ ru:
     header_admin:
       welcome_message: "Добро пожаловать, %{email} Гуру"
       user_interface: "Интерфейс Пользователя"
-  gist_question_service:
-    gist_params:
-      description: "Вопрос про %{title} с TestGuru"
+  services:
+    gist_question_service:
+      gist_params:
+        description: "Вопрос про %{title} с TestGuru"

@@ -120,6 +120,7 @@ en:
     header_admin:
       welcome_message: "Welcome, %{email} Guru"
       user_interface: "User Interface"
-  gist_question_service:
-    gist_params:
-      description: "A question about %{title} from TestGuru"
+  services:
+    gist_question_service:
+      gist_params:
+        description: "A question about %{title} from TestGuru"

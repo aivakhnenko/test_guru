@@ -22,12 +22,12 @@ class TestAttemptsController < ApplicationController
     result = GistQuestionService.new(@test_attempt.current_question).call
     url = result.html_url
     gist = current_user.gists.new(question: @test_attempt.current_question, url: url)
-    if gist.save!
-      flash_options = { notice: t('.success', link: "<a href='#{url}'>#{t('.link_title')}</a>") }
+    if url? && gist.save
+      flash[:notice] = t('.success', link: "#{view_context.link_to(t('.link_title'), url)}")
     else
-      flash_options = { notice: t('.failed') }
+      flash[:alert] = t('.failed')
     end
-    redirect_to @test_attempt, flash_options
+    redirect_to @test_attempt
   end
 
   private

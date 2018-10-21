@@ -1,8 +1,8 @@
 class GistQuestionService
-  def initialize(question, client: nil)
+  def initialize(question, client: default_client)
     @question = question
     @test = @question.test
-    @client = Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
+    @client = client
   end
 
   def call
@@ -11,9 +11,13 @@ class GistQuestionService
 
   private
 
+  def default_client
+    Octokit::Client.new(access_token: ENV['ACCESS_TOKEN'])
+  end
+
   def gist_params
     {
-      description: I18n.t('gist_question_service.gist_params.description', title: @test.title),
+      description: I18n.t('services.gist_question_service.gist_params.description', title: @test.title),
       files: {
         "test-guru-question.txt" => {
           content: gist_content
@@ -23,8 +27,6 @@ class GistQuestionService
   end
 
   def gist_content
-    content = [@question.body]
-    content += @question.answers.pluck(:text)
-    content.join("\n")
+    [@question.body, *@question.answers.pluck(:text)].join("\n")
   end
 end
