@@ -14,7 +14,10 @@
           </div>
         <% end %>
 
-        <%= form.submit t('.next'), class: "btn btn-secondary btn-sm" %>
+        <div class="btn-group" role="group" >
+          <%= form.submit t('.next'), class: "btn btn-outline-dark btn-sm" %>
+          <%= link_to t('.gist'), gist_test_attempt_path(@test_attempt), role: 'button', class: 'btn btn-outline-dark btn-sm', method: :post %>
+        </div>
       </div>
     <% end %>
   </div>

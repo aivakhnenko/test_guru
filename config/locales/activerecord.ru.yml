@@ -19,6 +19,8 @@ ru:
       answer:
         text: "Текст"
         correct: "Правильный"
+      gist:
+        url: "Gist URL"
     errors:
       messages:
         greater_than: "должен иметь значение больше %{count}"
