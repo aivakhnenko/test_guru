@@ -20,10 +20,9 @@ class TestAttemptsController < ApplicationController
 
   def gist
     result = GistQuestionService.new(@test_attempt.current_question).call
-    url = result.html_url
-    gist = current_user.gists.new(question: @test_attempt.current_question, url: url)
-    if url? && gist.save
-      flash[:notice] = t('.success', link: "#{view_context.link_to(t('.link_title'), url)}")
+    gist = current_user.gists.new(question: @test_attempt.current_question, url: result.url)
+    if result.success? && gist.save
+      flash[:notice] = t('.success', link: view_context.link_to(t('.link_title'), result.url))
     else
       flash[:alert] = t('.failed')
     end
