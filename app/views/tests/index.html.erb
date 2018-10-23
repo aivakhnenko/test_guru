@@ -5,7 +5,11 @@
     <table class="table table-sm text-center">
       <thead class="thead-light">
         <tr>
-          <th scope="col"><%= Test.human_attribute_name(:title) %></th>
+          <th scope="col" class="sort-by-title pointer">
+            <%= Test.human_attribute_name(:title) %>
+            <%= octicon 'arrow-up', class: 'text-success hide' %>
+            <%= octicon 'arrow-down', class: 'text-success hide' %>
+          </th>
           <th scope="col"><%= Test.human_attribute_name(:level) %></th>
           <th scope="col"><%= Category.model_name.human %></th>
           <th scope="col"><%= Question.model_name.human(count: 9) %></th>
