@@ -33,7 +33,9 @@
 
             <p>
               <%= f.label :password_confirmation %>
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+              <%= octicon 'check', class: 'text-success hide' %>
+              <%= octicon 'x', class: 'text-danger hide' %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control check-password-confirmation" %>
             </p>
 
             <%= f.submit t('.sign_up'), class: "btn btn-primary" %>
