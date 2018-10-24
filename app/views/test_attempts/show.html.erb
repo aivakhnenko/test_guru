@@ -7,7 +7,7 @@
         data: { current: @test_attempt.current_question_index - 1, total: @test_attempt.test.questions.count } %>
     <% end %>
 
-    <h2><%= raw t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
+    <h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
     <strong><%= @test_attempt.current_question.body %></strong>
 
     <%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put do |form| %>
