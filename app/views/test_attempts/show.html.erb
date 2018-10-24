@@ -1,7 +1,13 @@
 <div class="row">
   <div class="col">
     <h1><%= t('.header', title: @test_attempt.test.title) %></h1>
-    <h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
+
+    <%= content_tag :div, class: 'progress-bar bg-secondary' do %>
+      <%= content_tag :div, nil, class: 'progress-bar-line bg-success pt-4', 
+        data: { current: @test_attempt.current_question_index - 1, total: @test_attempt.test.questions.count } %>
+    <% end %>
+
+    <h2><%= raw t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
     <strong><%= @test_attempt.current_question.body %></strong>
 
     <%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put do |form| %>

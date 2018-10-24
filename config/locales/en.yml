@@ -8,6 +8,7 @@ en:
     show: "Show"
     edit: "Edit"
     delete: "Delete"
+    cancel: "Cancel"
     back: "Back"
     back_to_test: "Back to test %{title}"
     back_to_all_tests: "Back to all tests"
@@ -71,6 +72,8 @@ en:
         header: "Test %{title}"
         edit_test: "Edit test"
         new_question: "New question"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "Gists"

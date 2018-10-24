@@ -8,6 +8,7 @@ ru:
     show: "Просмотреть"
     edit: "Изменить"
     delete: "Удалить"
+    cancel: "Отменить"
     back: "Назад"
     back_to_test: "Назад к тесту %{title}"
     back_to_all_tests: "Назад ко всем тестам"
@@ -71,6 +72,8 @@ ru:
         header: "Тест %{title}"
         edit_test: "Изменить тест"
         new_question: "Новый вопрос"
+      form_inline:
+        submit: "OK"
     gists:
       index:
         header: "Gists"
