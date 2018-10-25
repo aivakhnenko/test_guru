@@ -1,12 +1,16 @@
 <tr>
-  <th scope="row" class="text-left"><%= test.title %></th>
-  <td><%= test.level %></td>
-  <td><%= test.category.title %></td>
-  <td><%= test.questions.count %></td>
-  <td class="w-25">
+  <th scope="row" class="text-left align-middle">
+    <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test ? @test : test %>
+  </th>
+  <td class="align-middle"><%= test.level %></td>
+  <td class="align-middle"><%= test.category.title %></td>
+  <td class="align-middle"><%= test.questions.count %></td>
+  <td class="w-25 align-middle">
     <div class="btn-group" role="group" >
       <%= link_to t('general.show'), admin_test_path(test), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
-      <%= link_to t('general.edit'), edit_admin_test_path(test), role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('general.edit'), edit_admin_test_path(test), role: 'button', class: 'btn btn-outline-dark btn-sm form-inline-link form-inline-link-edit', data: { test_id: test.id} %>
+      <%= link_to t('general.cancel'), edit_admin_test_path(test), role: 'button', class: 'btn btn-outline-dark btn-sm form-inline-link form-inline-link-cancel hide', data: { test_id: test.id} %>
       <%= link_to t('general.delete'), admin_test_path(test), role: 'button', class: 'btn btn-outline-dark btn-sm', method: :delete, data: { confirm: t('general.are_you_sure?') } %>
     </div>
   </td>
