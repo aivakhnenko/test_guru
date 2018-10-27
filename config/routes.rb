@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'feedbacks/new'
   root to: 'tests#index'
   get 'admin', to: 'admin/tests#index'
 
