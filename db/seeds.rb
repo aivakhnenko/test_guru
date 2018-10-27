@@ -10,8 +10,7 @@ users = User.create!([
   { type: 'User', last_name: 'Smith', first_name: 'John', email: 'john@example.com', password: 'iamaguru' }, 
   { type: 'User', last_name: 'Green', first_name: 'Mike', email: 'mike@example.com', password: 'iamaguru' }, 
   { type: 'Admin', last_name: 'Admin', first_name: 'Admin', email: 'admin@example.com', password: 'iamaguru' }, 
-  { type: 'Admin', last_name: 'Teacher', first_name: 'Teacher', email: 'teacher@example.com', password: 'iamaguru' },
-  { type: 'Admin', last_name: 'Ivakhnenko', first_name: 'Alexander', email: 'alexander.ivakhnenko@gmail.com', password: 'iamaguru325' }
+  { type: 'Admin', last_name: 'Teacher', first_name: 'Teacher', email: 'teacher@example.com', password: 'iamaguru' }
 ])
 
 categories = Category.create!([
