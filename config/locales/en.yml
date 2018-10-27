@@ -16,6 +16,7 @@ en:
     sign_up: "Sign up"
     login: "Login"
     logout: "Logout"
+    feedback: "Feedback"
     admin_panel: "Admin Panel"
     project_author: "Alexander Ivakhnenko"
     project_name_short: "TestGuru"
@@ -101,6 +102,16 @@ en:
       success: "%{link} was successfully created!"
       link_title: "Gist"
       failure: "An error occurred while saving gist"
+  feedbacks:
+    new:
+      header: "Create Feedback"
+      user: "User"
+      email: "Email"
+      title: "Title"
+      text: "Text"
+      submit: "Create"
+    create:
+      notice: "New feedback has created"
   helper:
     questions:
       header_new: "Create New %{title} Question"

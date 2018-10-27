@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col">
+    <h1><%= t('.header') %></h1>
+
+    <%= form_with url: feedback_path, local: true, method: :post do |form| %>
+      <div class="form-group">
+        <p>
+          <%= form.label t('.user') %>:
+          <%= current_user.full_name %>
+        </p>
+
+        <p>
+          <%= form.label t('.email') %>:
+          <%= current_user.email %>
+        </p>
+
+        <p>
+          <%= form.label t('.title') %>:
+          <%= form.text_field :title, id: :title, class: "form-control" %>
+        </p>
+
+        <p>
+          <%= form.label t('.text') %>:
+          <%= form.text_area :text, id: :text, class: "form-control" %>
+        </p>
+
+        <%= form.submit t('.submit'), class: "btn btn-secondary btn-sm" %>
+      </div>
+    <% end %>
+
+    <div class="btn-group" role="group" >
+      <%= link_to t('general.back_to_all_tests'), admin_tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
+  </div>
+</div>

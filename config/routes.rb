@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'feedbacks/new'
   root to: 'tests#index'
   get 'admin', to: 'admin/tests#index'
 
@@ -28,4 +29,6 @@ Rails.application.routes.draw do
 
     resources :gists, only: :index
   end
+
+  resource :feedback, only: %i[new create]
 end

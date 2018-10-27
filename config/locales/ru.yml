@@ -16,6 +16,7 @@ ru:
     sign_up: "Регистрация"
     login: "Войти"
     logout: "Выйти"
+    feedback: "Обратная связь"
     admin_panel: "Панель Администора"
     project_author: "Александр Ивахненко"
     project_name_short: "TestGuru"
@@ -101,6 +102,16 @@ ru:
       success: "%{link} успешно создан."
       link_title: "Gist"
       failure: "Во время сохранениия gist произошла ошибка"
+  feedbacks:
+    new:
+      header: "Новое сообщение обратной связи"
+      user: "Пользователь"
+      email: "Email"
+      title: "Заголовок"
+      text: "Текст"
+      submit: "Отправить"
+    create:
+      notice: "Новое сообщение обратной связи создано"
   helper:
     questions:
       header_new: "Создать Новый %{title} Вопрос"
