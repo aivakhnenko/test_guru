@@ -2,13 +2,8 @@ class FeedbacksController < ApplicationController
   def new; end
 
   def create
-    mail_feedback
+    feedback_params = params.permit(:title, :text).merge(user: current_user).to_h.symbolize_keys
+    FeedbacksMailer.feedback(feedback_params).deliver_now
     redirect_to root_path, notice: t('feedbacks.create.notice')
-  end
-
-  private
-
-  def mail_feedback
-    FeedbacksMailer.feedback(user: current_user.full_name, email: current_user.email, title: params[:title], text: params[:text]).deliver_now
   end
 end
