@@ -50,6 +50,6 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    redirect_to admin_path, alert: t('admin.answers.rescue_with_question_not_found.alert')
+    redirect_to admin_path, alert: t('admin.questions.rescue_with_question_not_found.alert')
   end
 end

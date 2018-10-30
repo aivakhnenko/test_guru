@@ -62,6 +62,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    redirect_to admin_path, alert: t('admin.answers.rescue_with_test_not_found.alert')
+    redirect_to admin_path, alert: t('admin.tests.rescue_with_test_not_found.alert')
   end
 end
