@@ -56,7 +56,7 @@ ru:
       create:
         notice_success: "Тест успешно создан."
       update:
-        notice_success: Тест успешно обновлен."
+        notice_success: "Тест успешно обновлен."
       destroy:
         notice_success: "Тест успешно удален."
       rescue_with_test_not_found:
@@ -67,6 +67,7 @@ ru:
         header: "Тесты"
         new_test: "Новый тест"
         gists: "Gists"
+        badges: "Бейджи"
       new:
         header: "Создать Новый Тест"
       show:
@@ -78,6 +79,24 @@ ru:
     gists:
       index:
         header: "Gists"
+    badges:
+      create:
+        notice_success: "Бейдж успешно создан."
+      update:
+        notice_success: "Бейдж успешно обновлен."
+      destroy:
+        notice_success: "Бейдж успешно удален."
+      rescue_with_badge_not_found:
+        alert: "Бейдж не найден."
+      index:
+        header: "Бейджи"
+        new_badge: "Новый бейдж"
+      new:
+        header: "Создать Новый Бейдж"
+      show:
+        header: "Бейдж"
+      edit:
+        header: "Изменить Бейдж"
   sessions:
     create:
       welcome_message: "Добро пожаловать, %{name}!"
@@ -86,6 +105,7 @@ ru:
       start: "Пройти"
     index:
       header: "Тесты"
+      badges: "Бейджи"
     rescue_with_test_not_found:
       alert: "Тест не найден."
   test_attempts:
@@ -112,6 +132,9 @@ ru:
       submit: "Отправить"
     create:
       notice: "Новое сообщение обратной связи создано"
+  badges:
+    index:
+      header: "Бейджи"
   helper:
     questions:
       header_new: "Создать Новый %{title} Вопрос"

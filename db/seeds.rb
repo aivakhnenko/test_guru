@@ -63,3 +63,15 @@ test_attempts = TestAttempt.create!([
   { user: users[0], test: tests[3] },
   { user: users[1], test: tests[4] },
 ])
+
+badge_types = BadgeType.create!([
+  { name: 'Test passed after one attempt' }, 
+  { name: 'All tests of category are passed' }, 
+  { name: 'All tests of level are passed' }
+])
+
+badge = Badge.create!([
+  { name: 'First attempt', image_url: 'google', badge_type: badge_types[0] }, 
+  { name: 'Backend category', image_url: 'google', badge_type: badge_types[1], category: categories[1] }, 
+  { name: 'Level 3', image_url: 'google', badge_type: badge_types[2], level: 3 }
+])

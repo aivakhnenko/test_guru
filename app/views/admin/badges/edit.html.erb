@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col">
+    <h1><%= t('.header', title: @badge.name) %></h1>
+
+    <%= render 'form' %>
+
+    <div class="btn-group" role="group" >
+      <%= link_to t('general.back'), admin_badges_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('general.back_to_all_tests'), admin_tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,8 @@ ru:
       answer:
         one: "Ответ"
         other: "Ответы"
+      badge: "Бейдж"
+      badge_type: "Тип"
     attributes:
       test:
         title: "Название"
@@ -21,6 +23,15 @@ ru:
         correct: "Правильный"
       gist:
         url: "Gist URL"
+      badge:
+        name: "Название"
+        image_url: "URL рисунка"
+        badge_type: "Тип"
+        badge_type_id: "Тип"
+        level: "Уровень"
+        category_id: "Категория"
+      user_badge:
+        created_at: "Получен"
     errors:
       messages:
         greater_than: "должен иметь значение больше %{count}"

@@ -12,6 +12,7 @@ class TestAttemptsController < ApplicationController
     
     if @test_attempt.completed?
       mail_finished_test
+      current_user.get_badges(@test_attempt)
       redirect_to result_test_attempt_path(@test_attempt)
     else
       render :show

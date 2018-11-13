@@ -6,23 +6,19 @@
       <thead class="thead-light">
         <tr>
           <th scope="col" class="sort-by-title pointer">
-            <%= Test.human_attribute_name(:title) %>
+            <%= Badge.human_attribute_name(:name) %>
             <%= octicon 'arrow-up', class: 'text-success hide' %>
             <%= octicon 'arrow-down', class: 'text-success hide' %>
           </th>
-          <th scope="col"><%= Test.human_attribute_name(:level) %></th>
+          <th scope="col"><%= BadgeType.model_name.human %></th>
           <th scope="col"><%= Category.model_name.human %></th>
-          <th scope="col"><%= Question.model_name.human(count: 9) %></th>
-          <th scope="col"><%= t('general.actions') %></th>
+          <th scope="col"><%= Badge.human_attribute_name(:level) %></th>
+          <th scope="col"><%= UserBadge.human_attribute_name(:created_at) %></th>
         </tr>
       </thead>
       <tbody>
-        <%= render @tests %>
+        <%= render @badges %>
       </tbody>
     </table>
-
-    <div class="btn-group" role="group" >
-      <%= link_to t('.badges'), badges_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
-    </div>
   </div>
 </div>

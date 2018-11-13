@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  badge: one
+  type: one
+  category: one
+  level: one
+
+two:
+  badge: two
+  type: two
+  category: two
+  level: two

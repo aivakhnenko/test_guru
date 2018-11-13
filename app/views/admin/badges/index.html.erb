@@ -2,27 +2,30 @@
   <div class="col">
     <h1><%= t('.header') %></h1>
 
+    <%= render 'shared/errors', resource: @test %>
+
     <table class="table table-sm text-center">
       <thead class="thead-light">
         <tr>
           <th scope="col" class="sort-by-title pointer">
-            <%= Test.human_attribute_name(:title) %>
+            <%= Badge.human_attribute_name(:name) %>
             <%= octicon 'arrow-up', class: 'text-success hide' %>
             <%= octicon 'arrow-down', class: 'text-success hide' %>
           </th>
-          <th scope="col"><%= Test.human_attribute_name(:level) %></th>
+          <th scope="col"><%= BadgeType.model_name.human %></th>
           <th scope="col"><%= Category.model_name.human %></th>
-          <th scope="col"><%= Question.model_name.human(count: 9) %></th>
+          <th scope="col"><%= Badge.human_attribute_name(:level) %></th>
           <th scope="col"><%= t('general.actions') %></th>
         </tr>
       </thead>
       <tbody>
-        <%= render @tests %>
+        <%= render @badges %>
       </tbody>
     </table>
 
     <div class="btn-group" role="group" >
-      <%= link_to t('.badges'), badges_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('.new_badge'), new_admin_badge_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+      <%= link_to t('general.back_to_all_tests'), admin_tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
     </div>
   </div>
 </div>

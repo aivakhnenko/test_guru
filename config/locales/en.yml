@@ -67,6 +67,7 @@ en:
         header: "Tests"
         new_test: "New test"
         gists: "Gists"
+        badges: "Badges"
       new:
         header: "Create New Test"
       show:
@@ -78,6 +79,24 @@ en:
     gists:
       index:
         header: "Gists"
+    badges:
+      create:
+        notice_success: "Badge was successfully create."
+      update:
+        notice_success: "Badge was successfully updated."
+      destroy:
+        notice_success: "Badge was successfully deleted."
+      rescue_with_badge_not_found:
+        alert: "Badge was not found."
+      index:
+        header: "Badges"
+        new_badge: "New badge"
+      new:
+        header: "Create New Badge"
+      show:
+        header: "Badge"
+      edit:
+        header: "Edit Badge"
   sessions:
     create:
       welcome_message: "Welcome, %{name}!"
@@ -86,6 +105,7 @@ en:
       start: "Start"
     index:
       header: "Tests"
+      badges: "Badges"
     rescue_with_test_not_found:
       alert: "Test was not found."
   test_attempts:
@@ -112,6 +132,9 @@ en:
       submit: "Create"
     create:
       notice: "New feedback has created"
+  badges:
+    index:
+      header: "Badges"
   helper:
     questions:
       header_new: "Create New %{title} Question"
