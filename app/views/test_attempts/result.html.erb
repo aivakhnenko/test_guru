@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col">
-    <h1><%= t(@test_attempt.completed_successfully? ? '.header_passed' : '.header_failed', title: @test_attempt.test.title) %></h1>
+    <h1><%= t(@test_attempt.completed_successfully ? '.header_passed' : '.header_failed', title: @test_attempt.test.title) %></h1>
 
     <p>
       <%= t('.correct_answers_percentage') %>: 
-      <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
+      <span style="color:<%= @test_attempt.completed_successfully ? 'green' : 'red' %>">
       	<%= @test_attempt.correct_questions_percentage %>%
       </span>
     </p>

@@ -12,7 +12,7 @@
             <%= octicon 'arrow-up', class: 'text-success hide' %>
             <%= octicon 'arrow-down', class: 'text-success hide' %>
           </th>
-          <th scope="col"><%= BadgeType.model_name.human %></th>
+          <th scope="col"><%= Badge.human_attribute_name(:badge_type) %></th>
           <th scope="col"><%= Category.model_name.human %></th>
           <th scope="col"><%= Badge.human_attribute_name(:level) %></th>
           <th scope="col"><%= t('general.actions') %></th>

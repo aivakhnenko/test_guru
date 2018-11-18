@@ -45,11 +45,13 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    case (params[:badge][:badge_type_id])
-    when '1' then params.require(:badge).permit(:name, :image_url, :badge_type_id)
-    when '2' then params.require(:badge).permit(:name, :image_url, :badge_type_id, :category_id)
-    when '3' then params.require(:badge).permit(:name, :image_url, :badge_type_id, :level)
-    end
+    allowed_attrs = 
+      case params[:badge][:badge_type]
+      when '0' then %i[name image_url]
+      when '1' then %i[name image_url category_id]
+      when '2' then %i[name image_url level]
+      end
+    params.require(:badge).permit(*allowed_attrs).merge(badge_type: params[:badge][:badge_type].to_i)
   end
 
   def rescue_with_badge_not_found

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_123307) do
+ActiveRecord::Schema.define(version: 2018_11_18_141403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,21 +24,14 @@ ActiveRecord::Schema.define(version: 2018_10_31_123307) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "badge_types", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "badges", force: :cascade do |t|
     t.string "name", null: false
     t.string "image_url", null: false
-    t.bigint "badge_type_id", null: false
+    t.integer "badge_type"
     t.bigint "category_id"
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["badge_type_id"], name: "index_badges_on_badge_type_id"
     t.index ["category_id"], name: "index_badges_on_category_id"
   end
 
@@ -73,6 +66,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_123307) do
     t.datetime "updated_at", null: false
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0
+    t.boolean "completed_successfully", default: false
     t.index ["current_question_id"], name: "index_test_attempts_on_current_question_id"
     t.index ["test_id"], name: "index_test_attempts_on_test_id"
     t.index ["user_id"], name: "index_test_attempts_on_user_id"
@@ -125,7 +119,6 @@ ActiveRecord::Schema.define(version: 2018_10_31_123307) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "badges", "badge_types"
   add_foreign_key "badges", "categories"
   add_foreign_key "user_badges", "badges"
   add_foreign_key "user_badges", "users"

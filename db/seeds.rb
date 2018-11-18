@@ -7,10 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 users = User.create!([
-  { type: 'User', last_name: 'Smith', first_name: 'John', email: 'john@example.com', password: 'iamaguru' }, 
-  { type: 'User', last_name: 'Green', first_name: 'Mike', email: 'mike@example.com', password: 'iamaguru' }, 
-  { type: 'Admin', last_name: 'Admin', first_name: 'Admin', email: 'admin@example.com', password: 'iamaguru' }, 
-  { type: 'Admin', last_name: 'Teacher', first_name: 'Teacher', email: 'teacher@example.com', password: 'iamaguru' }
+  { type: 'Admin', last_name: 'Admin', first_name: 'Admin', email: 'admin@example.com', password: 'iamaguru' }
 ])
 
 categories = Category.create!([
@@ -20,11 +17,11 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { category: categories[0], level: 1, author: users[2], title: 'HTML' }, 
-  { category: categories[0], level: 2, author: users[2], title: 'CSS' }, 
-  { category: categories[0], level: 3, author: users[2], title: 'JS' }, 
-  { category: categories[1], level: 4, author: users[3], title: 'Ruby' }, 
-  { category: categories[2], level: 4, author: users[3], title: 'Objective_C' }
+  { category: categories[0], level: 1, author: users[0], title: 'HTML' }, 
+  { category: categories[0], level: 2, author: users[0], title: 'CSS' }, 
+  { category: categories[0], level: 3, author: users[0], title: 'JS' }, 
+  { category: categories[1], level: 4, author: users[0], title: 'Ruby' }, 
+  { category: categories[2], level: 4, author: users[0], title: 'Objective_C' }
 ])
 
 questions = Question.create!([
@@ -56,22 +53,8 @@ answers = Answer.create!([
   { question: questions[6], correct: false, text: 'false' }
 ])
 
-test_attempts = TestAttempt.create!([
-  { user: users[0], test: tests[0] },
-  { user: users[0], test: tests[1] },
-  { user: users[0], test: tests[2] },
-  { user: users[0], test: tests[3] },
-  { user: users[1], test: tests[4] },
-])
-
-badge_types = BadgeType.create!([
-  { name: 'Test passed after one attempt' }, 
-  { name: 'All tests of category are passed' }, 
-  { name: 'All tests of level are passed' }
-])
-
 badge = Badge.create!([
-  { name: 'First attempt', image_url: 'google', badge_type: badge_types[0] }, 
-  { name: 'Backend category', image_url: 'google', badge_type: badge_types[1], category: categories[1] }, 
-  { name: 'Level 3', image_url: 'google', badge_type: badge_types[2], level: 3 }
+  { name: 'First attempt', image_url: 'google', badge_type: 0 }, 
+  { name: 'Backend category', image_url: 'google', badge_type: 1, category: categories[1] }, 
+  { name: 'Level 3', image_url: 'google', badge_type: 2, level: 3 }
 ])

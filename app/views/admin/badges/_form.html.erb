@@ -13,8 +13,8 @@
     </p>
 
     <%= content_tag :p, class: 'badge-type' do %>
-      <%= form.label :badge_type_id %>:
-      <%= form.collection_select :badge_type_id, BadgeType.all, :id, :name, prompt: true, class: "form-control" %>
+      <%= form.label :badge_type %>:
+      <%= form.collection_select :badge_type, Badge.badge_types, :last, :first, prompt: true, class: "form-control" %>
     <% end %>
 
     <%= content_tag :p, class: 'badge-level hide' do %>

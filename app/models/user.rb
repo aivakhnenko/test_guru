@@ -33,23 +33,4 @@ class User < ApplicationRecord
   def full_name
     "#{first_name} #{last_name}"
   end
-
-  def get_badges(test_attempt)
-    return unless test_attempt.passed_for_the_first_time?
-    category = test_attempt.test.category
-    level = test_attempt.test.level
-    badges.push(*Badge.where(badge_type: 1)) if test_attempt.first_attempt?
-    badges.push(*Badge.where(badge_type: 2, category: category)) if category_completed?(category)
-    badges.push(*Badge.where(badge_type: 3, level: level)) if level_completed?(level)
-  end
-
-  private
-
-  def category_completed?(category)
-    Test.where(category: category).count == test_attempts.category(category).passed.pluck(:test_id).count
-  end
-
-  def level_completed?(level)
-    Test.where(level: level).count == test_attempts.level(level).passed.pluck(:test_id).count
-  end
 end

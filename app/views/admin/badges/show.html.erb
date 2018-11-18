@@ -3,11 +3,11 @@
     <h1><%= t('.header', title: @badge.name) %></h1>
 
     <p><strong><%= Badge.human_attribute_name(:name) %>:</strong> <%= @badge.name %></p>
-    <p><strong><%= Badge.human_attribute_name(:badge_type_id) %>:</strong> <%= @badge.badge_type.name %></p>
-    <% if (@badge.category) %>
+    <p><strong><%= Badge.human_attribute_name(:badge_type) %>:</strong> <%= @badge.badge_type %></p>
+    <% if @badge.category %>
       <p><strong><%= Badge.human_attribute_name(:category_id) %>:</strong> <%= @badge.category.title %></p>
     <% end %>
-    <% if (@badge.level) %>
+    <% if @badge.level %>
       <p><strong><%= Badge.human_attribute_name(:level) %>:</strong> <%= @badge.level %></p>
     <% end %>
 

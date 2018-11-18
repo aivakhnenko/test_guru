@@ -7,21 +7,18 @@ class TestAttempt < ApplicationRecord
 
   before_validation :before_validation_set_current_question
 
-  scope :passed, -> { select{ |attempt| attempt.completed_successfully? } }
+  scope :passed, -> { where(completed_successfully: true) }
   scope :category, -> (category) { joins(:test).where(tests: { category: category }) }
   scope :level, -> (level) { joins(:test).where(tests: { level: level }) }
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.completed_successfully = true if !next_question && correct_questions_percentage >= 85
     save!
   end
 
   def completed?
     current_question.nil?
-  end
-
-  def completed_successfully?
-    correct_questions_percentage >= 85
   end
 
   def correct_questions_percentage
@@ -30,18 +27,6 @@ class TestAttempt < ApplicationRecord
 
   def current_question_index
     test.questions.where('id <= ?', current_question.id).count
-  end
-
-  def passed_for_the_first_time?
-    completed_successfully? && passed_times == 1
-  end
-
-  def passed_times
-    TestAttempt.where(user: user, test: test).select{ |attempt| attempt.completed_successfully? }.count
-  end
-
-  def first_attempt?
-    TestAttempt.where(user: user, test: test).count == 1
   end
 
   private

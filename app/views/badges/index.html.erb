@@ -10,7 +10,7 @@
             <%= octicon 'arrow-up', class: 'text-success hide' %>
             <%= octicon 'arrow-down', class: 'text-success hide' %>
           </th>
-          <th scope="col"><%= BadgeType.model_name.human %></th>
+          <th scope="col"><%= Badge.human_attribute_name(:badge_type) %></th>
           <th scope="col"><%= Category.model_name.human %></th>
           <th scope="col"><%= Badge.human_attribute_name(:level) %></th>
           <th scope="col"><%= UserBadge.human_attribute_name(:created_at) %></th>
@@ -20,5 +20,9 @@
         <%= render @badges %>
       </tbody>
     </table>
+
+    <div class="btn-group" role="group" >
+      <%= link_to t('general.back_to_all_tests'), tests_path, role: 'button', class: 'btn btn-outline-dark btn-sm' %>
+    </div>
   </div>
 </div>
