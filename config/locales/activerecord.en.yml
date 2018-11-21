@@ -32,6 +32,12 @@ en:
         category_id: "Category"
       user_badge:
         created_at: "Received"
+    values:
+      badge:
+        badge_type:
+          one_attempt: 'Test passed after one attempt'
+          category: 'All tests of category are passed'
+          level: 'All tests of level are passed'
     errors:
       messages:
         greater_than: "must be greater than %{count}"

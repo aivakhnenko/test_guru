@@ -6,6 +6,8 @@ class TestAttempt < ApplicationRecord
   validates :test, :user, presence: true
 
   before_validation :before_validation_set_current_question
+  before_validation :before_validation_set_completed_successfully
+
 
   scope :passed, -> { where(completed_successfully: true) }
   scope :category, -> (category) { joins(:test).where(tests: { category: category }) }
@@ -13,7 +15,6 @@ class TestAttempt < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
-    self.completed_successfully = true if !next_question && correct_questions_percentage >= 85
     save!
   end
 
@@ -38,6 +39,10 @@ class TestAttempt < ApplicationRecord
       else
         next_question
       end
+  end
+
+  def before_validation_set_completed_successfully
+    self.completed_successfully = completed? && correct_questions_percentage >= 85
   end
 
   def correct_answer?(answer_ids)

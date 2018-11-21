@@ -12,7 +12,8 @@ class TestAttemptsController < ApplicationController
     
     if @test_attempt.completed?
       mail_finished_test
-      BadgeService.new(@test_attempt).assign_badges
+      achieved_badges = BadgeService.new(@test_attempt).achieved_badges
+      current_user.badges.push(achieved_badges)
       redirect_to result_test_attempt_path(@test_attempt)
     else
       render :show

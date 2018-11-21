@@ -14,7 +14,8 @@
 
     <%= content_tag :p, class: 'badge-type' do %>
       <%= form.label :badge_type %>:
-      <%= form.collection_select :badge_type, Badge.badge_types, :last, :first, prompt: true, class: "form-control" %>
+      <% badge_types_locale = Badge.badge_types.map { |type| [type.first, t("activerecord.values.badge.badge_type.#{type.first}")] } %>
+      <%= form.collection_select :badge_type, badge_types_locale, :first, :last, prompt: true, class: "form-control" %>
     <% end %>
 
     <%= content_tag :p, class: 'badge-level hide' do %>

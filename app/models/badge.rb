@@ -1,14 +1,21 @@
 class Badge < ApplicationRecord
-  enum badge_type: [
-    'Test passed after one attempt', 
-    'All tests of category are passed', 
-    'All tests of level are passed'
-  ]
+  enum badge_type: ['one_attempt', 'category', 'level']
   belongs_to :category, optional: true
   has_many :user_badges, dependent: :destroy
   has_many :users, through: :user_badges
 
+  alias_attribute :category_id, :badge_type_specificator
+  alias_attribute :level, :badge_type_specificator
+
   def first_time(user)
     user_badges.where(user: user).minimum(:created_at)
+  end
+
+  def category
+    Category.find(category_id) if badge_type == 'category'
+  end
+
+  def level
+    badge_type_specificator if badge_type == 'level'
   end
 end

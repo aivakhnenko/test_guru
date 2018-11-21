@@ -4,8 +4,7 @@ class CreateBadges < ActiveRecord::Migration[5.2]
       t.string :name, null: false
       t.string :image_url, null: false
       t.integer :badge_type
-      t.references :category, foreign_key: true
-      t.integer :level
+      t.integer :badge_type_specificator
 
       t.timestamps
     end

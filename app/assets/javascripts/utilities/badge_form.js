@@ -9,11 +9,11 @@ function showAttributes() {
   var level = document.querySelector(".badge-level");
   console.log(this.value);
   switch (this.value) {
-    case '1':
+    case 'category':
       category.classList.remove('hide');
       level.classList.add('hide');
       break;
-    case '2':
+    case 'level':
       category.classList.add('hide');
       level.classList.remove('hide');
       break;

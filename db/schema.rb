@@ -28,11 +28,9 @@ ActiveRecord::Schema.define(version: 2018_11_18_141403) do
     t.string "name", null: false
     t.string "image_url", null: false
     t.integer "badge_type"
-    t.bigint "category_id"
-    t.integer "level"
+    t.integer "badge_type_specificator"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_badges_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -119,7 +117,6 @@ ActiveRecord::Schema.define(version: 2018_11_18_141403) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "badges", "categories"
   add_foreign_key "user_badges", "badges"
   add_foreign_key "user_badges", "users"
 end

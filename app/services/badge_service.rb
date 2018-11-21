@@ -5,9 +5,11 @@ class BadgeService
     @test = test_attempt.test
   end
 
-  def assign_badges
-    return unless passed_successfully_for_the_first_time?
-    Badge.find_each { |badge| user.badges.push(badge) if badge_valid?(badge) }
+  def achieved_badges
+    return [] unless passed_successfully_for_the_first_time?
+    badges = []
+    Badge.find_each { |badge| badges.push(badge) if badge_valid?(badge) }
+    badges
   end
 
   private
@@ -23,18 +25,18 @@ class BadgeService
   end
 
   def badge_valid?(badge)
-    send("validate_badge_type_#{Badge.badge_types[badge.badge_type]}".to_sym, badge)
+    send("validate_badge_type_#{badge.badge_type}".to_sym, badge)
   end
 
-  def validate_badge_type_0(badge)
+  def validate_badge_type_one_attempt(badge)
     first_attempt?
   end
 
-  def validate_badge_type_1(badge)
+  def validate_badge_type_category(badge)
     category_completed?(badge)
   end
 
-  def validate_badge_type_2(badge)
+  def validate_badge_type_level(badge)
     level_completed?(badge)
   end
 

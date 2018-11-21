@@ -32,6 +32,12 @@ ru:
         category_id: "Категория"
       user_badge:
         created_at: "Получен"
+    values:
+      badge:
+        badge_type:
+          one_attempt: 'Тест пройден с первой попытки'
+          category: 'Все тесты категории пройдены'
+          level: 'Все тесты уровня пройдены'
     errors:
       messages:
         greater_than: "должен иметь значение больше %{count}"

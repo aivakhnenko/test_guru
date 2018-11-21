@@ -35,7 +35,7 @@ class Admin::BadgesController < ApplicationController
 
   def destroy
     @badge.destroy!
-    redirect_to admin_tests_path, notice: t('.notice_success')
+    redirect_to admin_badges_path, notice: t('.notice_success')
   end
 
   private
@@ -47,11 +47,11 @@ class Admin::BadgesController < ApplicationController
   def badge_params
     allowed_attrs = 
       case params[:badge][:badge_type]
-      when '0' then %i[name image_url]
-      when '1' then %i[name image_url category_id]
-      when '2' then %i[name image_url level]
+      when 'one_attempt' then %i[name image_url badge_type]
+      when 'category' then %i[name image_url badge_type category_id]
+      when 'level' then %i[name image_url badge_type level]
       end
-    params.require(:badge).permit(*allowed_attrs).merge(badge_type: params[:badge][:badge_type].to_i)
+    params.require(:badge).permit(*allowed_attrs)
   end
 
   def rescue_with_badge_not_found
