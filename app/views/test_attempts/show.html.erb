@@ -7,6 +7,12 @@
         data: { current: @test_attempt.current_question_index - 1, total: @test_attempt.test.questions.count } %>
     <% end %>
 
+    <% if @test_attempt.test.timer > 0 %>
+      <p>
+        <%= t('.time_left') %>: <%= content_tag :span, @test_attempt.end_time.to_f * 1000, class: 'timer hide' %>
+      </p>
+    <% end %>
+
     <h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
     <strong><%= @test_attempt.current_question.body %></strong>
 

@@ -16,6 +16,7 @@ en:
         title: "Title"
         level: "Level"
         category_id: "Category"
+        timer: "Timer"
       question:
         body: "Question"
       answer:
