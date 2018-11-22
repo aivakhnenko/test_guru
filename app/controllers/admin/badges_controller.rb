@@ -45,13 +45,12 @@ class Admin::BadgesController < ApplicationController
   end
 
   def badge_params
-    allowed_attrs = 
+    allowed_params = 
       case params[:badge][:badge_type]
-      when 'one_attempt' then %i[name image_url badge_type]
-      when 'category' then %i[name image_url badge_type category_id]
-      when 'level' then %i[name image_url badge_type level]
+      when 'category' then %i[category_id]
+      when 'level' then %i[level]
       end
-    params.require(:badge).permit(*allowed_attrs)
+    params.require(:badge).permit(:name, :image_url, :badge_type, *allowed_params)
   end
 
   def rescue_with_badge_not_found

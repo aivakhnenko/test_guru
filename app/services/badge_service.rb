@@ -7,9 +7,7 @@ class BadgeService
 
   def achieved_badges
     return [] unless passed_successfully_for_the_first_time?
-    badges = []
-    Badge.find_each { |badge| badges.push(badge) if badge_valid?(badge) }
-    badges
+    Badge.all.select { |badge| badge_valid?(badge) }
   end
 
   private
@@ -25,31 +23,19 @@ class BadgeService
   end
 
   def badge_valid?(badge)
-    send("validate_badge_type_#{badge.badge_type}".to_sym, badge)
+    send("badge_type_#{badge.badge_type}_valid?".to_sym, badge)
   end
 
-  def validate_badge_type_one_attempt(badge)
-    first_attempt?
-  end
-
-  def validate_badge_type_category(badge)
-    category_completed?(badge)
-  end
-
-  def validate_badge_type_level(badge)
-    level_completed?(badge)
-  end
-
-  def first_attempt?
+  def badge_type_one_attempt_valid?(badge)
     TestAttempt.where(user: user, test: test).count == 1
   end
 
-  def category_completed?(badge)
+  def badge_type_category_valid?(badge)
     category = badge.category
     Test.where(category: category).count == user.test_attempts.category(category).passed.distinct.count(:test_id)
   end
 
-  def level_completed?(badge)
+  def badge_type_level_valid?(badge)
     level = badge.level
     Test.where(level: level).count == user.test_attempts.level(level).passed.distinct.count(:test_id)
   end

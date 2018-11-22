@@ -4,8 +4,8 @@ class Badge < ApplicationRecord
   has_many :user_badges, dependent: :destroy
   has_many :users, through: :user_badges
 
-  alias_attribute :category_id, :badge_type_specificator
-  alias_attribute :level, :badge_type_specificator
+  alias_attribute :category_id, :badge_param
+  alias_attribute :level, :badge_param
 
   def first_time(user)
     user_badges.where(user: user).minimum(:created_at)
@@ -16,6 +16,6 @@ class Badge < ApplicationRecord
   end
 
   def level
-    badge_type_specificator if badge_type == 'level'
+    badge_param if badge_type == 'level'
   end
 end
