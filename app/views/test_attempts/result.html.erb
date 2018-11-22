@@ -4,7 +4,7 @@
 
     <p>
       <%= t('.correct_answers_percentage') %>: 
-      <span style="color:<%= @test_attempt.completed_successfully? ? 'green' : 'red' %>">
+      <span style="color:<%= @test_attempt.completed_successfully ? 'green' : 'red' %>">
       	<%= @test_attempt.correct_questions_percentage %>%
       </span>
     </p>

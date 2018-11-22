@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_many :tests, through: :test_attempts
   has_many :tests_created, class_name: "Test", foreign_key: "author_id"
   has_many :gists, dependent: :destroy
+  has_many :user_badges, dependent: :destroy
+  has_many :badges, through: :user_badges
 
   devise  :database_authenticatable, 
           :registerable, 

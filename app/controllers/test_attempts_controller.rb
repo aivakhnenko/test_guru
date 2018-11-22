@@ -12,6 +12,8 @@ class TestAttemptsController < ApplicationController
     
     if @test_attempt.completed?
       mail_finished_test
+      achieved_badges = BadgeService.new(@test_attempt).achieved_badges
+      current_user.badges.push(achieved_badges)
       redirect_to result_test_attempt_path(@test_attempt)
     else
       render :show
@@ -36,7 +38,7 @@ class TestAttemptsController < ApplicationController
   end
 
   def mail_finished_test
-    if @test_attempt.completed_successfully?
+    if @test_attempt.completed_successfully
       TestsMailer.completed_test(@test_attempt).deliver_now
     else
       TestsMailer.failed_test(@test_attempt).deliver_now
