@@ -15,7 +15,7 @@ class TestAttempt < ApplicationRecord
   scope :level, -> (level) { joins(:test).where(tests: { level: level }) }
 
   def accept!(answer_ids)
-    return self.current_question = nil unless time_left > 0
+    return self.current_question = nil if test.timer != 0 && time_left <= 0
     self.correct_questions += 1 if correct_answer?(answer_ids)
     save!
   end
