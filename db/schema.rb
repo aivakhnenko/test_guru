@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 2018_11_22_160626) do
     t.integer "current_question_id"
     t.integer "correct_questions", default: 0
     t.boolean "completed_successfully", default: false
-    t.datetime "start_time"
     t.index ["current_question_id"], name: "index_test_attempts_on_current_question_id"
     t.index ["test_id"], name: "index_test_attempts_on_test_id"
     t.index ["user_id"], name: "index_test_attempts_on_user_id"

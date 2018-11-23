@@ -20,11 +20,6 @@ module ApplicationHelper
     I18n.available_locales - [I18n.locale]
   end
 
-  def minutes(value)
-    return '—' if value == 0
-    t('general.minutes', count: value)
-  end
-
   private
 
   FLASH_TYPE_TO_ALERT_TYPE = { alert: :danger, notice: :info }.freeze

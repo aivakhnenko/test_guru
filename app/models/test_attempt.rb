@@ -5,7 +5,6 @@ class TestAttempt < ApplicationRecord
 
   validates :test, :user, presence: true
 
-  before_validation :before_validation_set_start_time
   before_validation :before_validation_set_current_question
   before_validation :before_validation_set_completed_successfully
 
@@ -15,8 +14,8 @@ class TestAttempt < ApplicationRecord
   scope :level, -> (level) { joins(:test).where(tests: { level: level }) }
 
   def accept!(answer_ids)
-    return self.current_question = nil if test.timer != 0 && time_left <= 0
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.current_question = nil if time_out?
     save!
   end
 
@@ -37,14 +36,10 @@ class TestAttempt < ApplicationRecord
   end
 
   def end_time
-    start_time + test.timer.minutes
+    created_at + test.timer.minutes
   end
 
   private
-
-  def before_validation_set_start_time
-    self.start_time = Time.current if new_record?
-  end
 
   def before_validation_set_current_question
     self.current_question =
@@ -56,7 +51,7 @@ class TestAttempt < ApplicationRecord
   end
 
   def before_validation_set_completed_successfully
-    self.completed_successfully = completed? && correct_questions_percentage >= 85
+    self.completed_successfully = completed? && correct_questions_percentage >= 45
   end
 
   def correct_answer?(answer_ids)
@@ -68,6 +63,10 @@ class TestAttempt < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.id).first if current_question
+  end
+
+  def time_out?
+    test.timer != 0 && time_left <= 0
   end
 end

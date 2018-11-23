@@ -14,7 +14,7 @@ class TestAttemptsController < ApplicationController
       mail_finished_test
       achieved_badges = BadgeService.new(@test_attempt).achieved_badges
       current_user.badges.push(achieved_badges)
-      redirect_to result_test_attempt_path(@test_attempt)
+      redirect_to result_test_attempt_path(@test_attempt), method: :get
     else
       render :show
     end

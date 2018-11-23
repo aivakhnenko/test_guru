@@ -4,23 +4,26 @@ document.addEventListener('turbolinks:load', function() {
   if (control) { setTimer(control); }
 })
 
+var timer;
+
 function setTimer(control) {
   var endTime = control.textContent;
   control.textContent = timeLeft(endTime);
   control.classList.remove('hide');
-  setInterval(function() {
+  timer = setInterval(function() {
     control.textContent = timeLeft(endTime);
   }, 500)
 }
 
 function timeLeft(endTime) {
-  var seconds, minutes;
-  seconds = parseInt((endTime - Date.now()) / 1000, 10);
-  console.log(endTime);
-  if (seconds < 1) {
-    window.location.replace(window.location + '/result');
+  var time, seconds, minutes;
+  time = endTime - Date.now();
+  if (time <= 0) {
+    clearInterval(timer);
+    document.forms[0].submit();
   }
-  minutes = parseInt(seconds / 60, 10);
-  seconds = parseInt(seconds % 60, 10);
+  seconds = Math.round(time / 1000);
+  minutes = Math.floor(seconds / 60);
+  seconds = seconds % 60;
   return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }
