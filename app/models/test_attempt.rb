@@ -51,7 +51,7 @@ class TestAttempt < ApplicationRecord
   end
 
   def before_validation_set_completed_successfully
-    self.completed_successfully = completed? && correct_questions_percentage >= 45
+    self.completed_successfully = completed? && correct_questions_percentage >= 85
   end
 
   def correct_answer?(answer_ids)

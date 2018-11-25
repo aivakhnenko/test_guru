@@ -20,7 +20,7 @@ function timeLeft(endTime) {
   time = endTime - Date.now();
   if (time <= 0) {
     clearInterval(timer);
-    document.forms[0].submit();
+    document.querySelector('.test-attempt-form').submit();
   }
   seconds = Math.round(time / 1000);
   minutes = Math.floor(seconds / 60);

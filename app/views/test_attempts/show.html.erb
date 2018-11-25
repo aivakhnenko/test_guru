@@ -16,7 +16,7 @@
     <h2><%= t('.question_header', current: @test_attempt.current_question_index, total: @test_attempt.test.questions.count) %>.</h2>
     <strong><%= @test_attempt.current_question.body %></strong>
 
-    <%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put do |form| %>
+    <%= form_with url: test_attempt_path(@test_attempt), local: true, method: :put, class: "test-attempt-form" do |form| %>
       <div class="form-group mb-0">
 
         <%= form.collection_check_boxes :answer_ids, @test_attempt.current_question.answers, :id, :text, include_hidden: false do |b| %>
