@@ -23,6 +23,11 @@ en:
     project_name_long: "Project TestGuru"
     project_description_short: "Online Tests"
     project_description_long: "Study project at online school Thinknetica"
+    minutes:
+      one: "%{count} minute"
+      few: "%{count} minutes"
+      many: "%{count} minutes"
+      other: "%{count} minutes"
   admin:
     base:
       admin_required:
@@ -76,6 +81,8 @@ en:
         new_question: "New question"
       form_inline:
         submit: "OK"
+      form:
+        timer_off_info: "0 to turn off timer"
     gists:
       index:
         header: "Gists"
@@ -118,6 +125,7 @@ en:
       question_header: "Question %{current} of %{total}"
       gist: "Gist Question"
       next: "Next"
+      time_left: "Time left"
     gist:
       success: "%{link} was successfully created!"
       link_title: "Gist"

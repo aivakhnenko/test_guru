@@ -15,6 +15,7 @@ class TestAttempt < ApplicationRecord
 
   def accept!(answer_ids)
     self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.current_question = nil if time_out?
     save!
   end
 
@@ -28,6 +29,14 @@ class TestAttempt < ApplicationRecord
 
   def current_question_index
     test.questions.where('id <= ?', current_question.id).count
+  end
+
+  def time_left
+    end_time - Time.current
+  end
+
+  def end_time
+    created_at + test.timer.minutes
   end
 
   private
@@ -54,6 +63,10 @@ class TestAttempt < ApplicationRecord
   end
 
   def next_question
-    test.questions.order(:id).where('id > ?', current_question.id).first
+    test.questions.order(:id).where('id > ?', current_question.id).first if current_question
+  end
+
+  def time_out?
+    test.timer != 0 && time_left <= 0
   end
 end

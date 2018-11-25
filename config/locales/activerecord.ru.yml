@@ -16,6 +16,7 @@ ru:
         title: "Название"
         level: "Уровень"
         category_id: "Категория"
+        timer: "Таймер"
       question:
         body: "Вопрос"
       answer:

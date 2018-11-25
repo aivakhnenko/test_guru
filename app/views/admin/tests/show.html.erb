@@ -5,6 +5,9 @@
     <p><strong><%= Test.human_attribute_name(:title) %>:</strong> <%= @test.title %></p>
     <p><strong><%= Test.human_attribute_name(:level) %>:</strong> <%= @test.level %></p>
     <p><strong><%= Test.human_attribute_name(:category_id) %>:</strong> <%= @test.category.title %></p>
+    <% if @test.timer > 0 %>
+      <p><strong><%= Test.human_attribute_name(:timer) %>:</strong> <%= minutes(@test.timer) %></p>
+    <% end %>
 
     <table class="table table-sm text-center">
       <thead class="thead-light">

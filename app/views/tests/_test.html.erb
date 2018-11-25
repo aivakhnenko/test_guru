@@ -2,6 +2,7 @@
   <th scope="row" class="text-left"><%= test.title %></th>
   <td><%= test.level %></td>
   <td><%= test.category.title %></td>
+  <td><%= minutes(test.timer) %></td>
   <td><%= test.questions.count %></td>
   <td><%= button_to t('.start'), start_test_path(test), type: 'button', class: 'btn btn-outline-dark btn-sm btn-block' %></td>
 </tr>

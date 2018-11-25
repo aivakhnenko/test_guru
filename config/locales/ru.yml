@@ -23,6 +23,11 @@ ru:
     project_name_long: "Проект TestGuru"
     project_description_short: "Тесты Онлайн"
     project_description_long: "Учебный проект в онлайн-школе Thinknetica"
+    minutes:
+      one: "%{count} минута"
+      few: "%{count} минуты"
+      many: "%{count} минут"
+      other: "%{count} минуты"
   admin:
     base:
       admin_required:
@@ -76,6 +81,8 @@ ru:
         new_question: "Новый вопрос"
       form_inline:
         submit: "OK"
+      form:
+        timer_off_info: "0 для отключения таймера"
     gists:
       index:
         header: "Gists"
@@ -118,6 +125,7 @@ ru:
       question_header: "Вопрос %{current} из %{total}"
       gist: "Опубликовать в Gist"
       next: "Следующий вопрос"
+      time_left: "Осталось времени"
     gist:
       success: "%{link} успешно создан."
       link_title: "Gist"
